@@ -1,0 +1,226 @@
+:root[data-theme="Layout2:NeoBlue"] {
+  --ep-accent-blue: rgb(92, 130, 245);
+  --ep-accent-red: rgb(230, 64, 33);
+  --ep-accent-orange: rgb(252, 151, 76);
+  --ep-accent-green: rgb(83, 193, 84);
+  --ep-accent-yellow: rgb(245, 200, 76);
+
+  --ep-neutral-white-white-100: rgb(255, 255, 255);
+  --ep-neutral-white-white-90: rgba(255, 255, 255, 0.90);
+  --ep-neutral-white-white-80: rgba(255, 255, 255, 0.80);
+  --ep-neutral-white-white-70: rgba(255, 255, 255, 0.70);
+  --ep-neutral-white-white-60: rgba(255, 255, 255, 0.60);
+  --ep-neutral-white-white-50: rgba(255, 255, 255, 0.50);
+  --ep-neutral-white-white-40: rgba(255, 255, 255, 0.40);
+  --ep-neutral-white-white-30: rgba(255, 255, 255, 0.30);
+  --ep-neutral-white-white-20: rgba(255, 255, 255, 0.20);
+  --ep-neutral-white-white-10: rgba(255, 255, 255, 0.10);
+  --ep-neutral-black-black-100: rgb(0, 0, 0);
+  --ep-neutral-black-black-90: rgba(0, 0, 0, 0.90);
+  --ep-neutral-black-black-80: rgba(0, 0, 0, 0.80);
+  --ep-neutral-black-black-70: rgba(0, 0, 0, 0.70);
+  --ep-neutral-black-black-60: rgba(0, 0, 0, 0.60);
+  --ep-neutral-black-black-50: rgba(0, 0, 0, 0.50);
+  --ep-neutral-black-black-40: rgba(0, 0, 0, 0.40);
+  --ep-neutral-black-black-30: rgba(0, 0, 0, 0.30);
+  --ep-neutral-black-black-20: rgba(0, 0, 0, 0.20);
+  --ep-neutral-black-black-10: rgba(0, 0, 0, 0.10);
+
+  --ep-values-2: 0.125rem;
+  --ep-values-4: 0.25rem;
+  --ep-values-6: 0.375rem;
+  --ep-values-8: 0.5rem;
+  --ep-values-10: 0.625rem;
+  --ep-values-12: 0.75rem;
+  --ep-values-14: 0.875rem;
+  --ep-values-16: 1rem;
+  --ep-values-18: 1.125rem;
+  --ep-values-20: 1.25rem;
+  --ep-values-24: 1.5rem;
+  --ep-values-32: 2rem;
+  --ep-values-36: 2.25rem;
+  --ep-values-70: 4.375rem;
+  --ep-values-200: 200;
+  --ep-values-400: 400;
+  --ep-values-600: 600;
+  --ep-values-700: 700;
+  --ep-values-900: 900;
+  --ep-values-infinity: 9999px;
+
+
+  --ep-primary-primary-900: rgb(24, 59, 95);
+  --ep-primary-primary-800: rgb(32, 77, 125);
+  --ep-primary-primary-700: rgb(41, 99, 161);
+  --ep-primary-primary-600: rgb(53, 127, 207);
+  --ep-primary-primary-500: rgb(10, 119, 218);
+  --ep-primary-primary-400: rgb(97, 163, 233);
+  --ep-primary-primary-300: rgb(123, 178, 236);
+  --ep-primary-primary-200: rgb(164, 202, 242);
+  --ep-primary-primary-100: rgb(194, 219, 246);
+  --ep-primary-primary-Opacity: rgba(10, 119, 218, 0.40);
+
+  --ep-secondary-secondary-900: rgb(35, 88, 36);
+  --ep-secondary-secondary-800: rgb(38, 111, 39);
+  --ep-secondary-secondary-700: rgb(45, 140, 46);
+  --ep-secondary-secondary-600: rgb(60, 171, 62);
+  --ep-secondary-secondary-500: rgb(83, 193, 84);
+  --ep-secondary-secondary-400: rgb(101, 217, 102);
+  --ep-secondary-secondary-300: rgb(151, 222, 152);
+  --ep-secondary-secondary-200: rgb(197, 237, 197);
+  --ep-secondary-secondary-100: rgb(225, 247, 225);
+  --ep-secondary-secondary-Opacity: rgba(83, 193, 84, 0.40);
+
+  --ep-tertiary-tertiary-900: rgb(7, 71, 115);
+  --ep-tertiary-tertiary-800: rgb(1, 86, 139);
+  --ep-tertiary-tertiary-700: rgb(0, 100, 169);
+  --ep-tertiary-tertiary-600: rgb(0, 127, 209);
+  --ep-tertiary-tertiary-500: rgb(12, 168, 252);
+  --ep-tertiary-tertiary-400: rgb(46, 185, 255);
+  --ep-tertiary-tertiary-300: rgb(119, 208, 255);
+  --ep-tertiary-tertiary-200: rgb(183, 228, 255);
+  --ep-tertiary-tertiary-100: rgb(222, 241, 255);
+  --ep-tertiary-tertiary-Opacity: rgba(12, 168, 252, 0.40);
+
+  --ep-inverse-inverse-900: rgb(87, 26, 38);
+  --ep-inverse-inverse-800: rgb(114, 35, 50);
+  --ep-inverse-inverse-700: rgb(147, 45, 65);
+  --ep-inverse-inverse-600: rgb(188, 57, 83);
+  --ep-inverse-inverse-500: rgb(102, 186, 32);
+  --ep-inverse-inverse-400: rgb(217, 101, 124);
+  --ep-inverse-inverse-300: rgb(223, 126, 145);
+  --ep-inverse-inverse-200: rgb(233, 167, 180);
+  --ep-inverse-inverse-100: rgb(240, 195, 204);
+  --ep-inverse-inverse-Opacity: rgba(250, 188, 52, 0.40);
+
+  --ep-neutral-gray-gray-L01: rgb(16, 27, 60);
+  --ep-neutral-gray-gray-L02: rgb(19, 31, 66);
+  --ep-neutral-gray-gray-L03: rgb(24, 37, 78);
+  --ep-neutral-gray-gray-L04: rgb(29, 42, 85);
+  --ep-neutral-gray-gray-L05: rgb(30, 45, 103);
+  --ep-neutral-gray-gray-L06: rgb(72, 87, 134);
+  --ep-neutral-gray-gray-L07: rgb(95, 111, 162);
+  --ep-neutral-gray-gray-L08: rgb(126, 138, 179);
+  --ep-neutral-gray-gray-L09: rgb(192, 197, 216);
+  --ep-neutral-gray-gray-L10: rgb(223, 226, 236);
+  --ep-neutral-transparent: rgba(255, 255, 255, 0);
+
+  --ep-default-font-family: 'Prompt', -apple-system, 'Roboto', sans-serif;
+  --ep-font-family: 'Prompt', -apple-system, 'Roboto', sans-serif;
+  --ep-border-radius-surface-default: 0;
+
+  --ep-font-family: var(--ep-default-font-family);
+
+  --ep-font-size-xs: var(--ep-values-10);
+  --ep-font-size-s: var(--ep-values-12);
+  --ep-font-size-m: var(--ep-values-14);
+  --ep-font-size-l: var(--ep-values-16);
+  --ep-font-size-xl: var(--ep-values-18);
+  --ep-font-size-xxl: var(--ep-values-24);
+  --ep-font-size-xxxl: var(--ep-values-36);
+  --ep-font-size-xxxxl: var(--ep-values-70);
+
+  --ep-font-weight-light: var(--ep-values-200);
+  --ep-font-weight-regular: var(--ep-values-400);
+  --ep-font-weight-medium: var(--ep-values-600);
+  --ep-font-weight-bold: var(--ep-values-700);
+
+  --ep-border-radius-xs: var(--ep-values-2);
+  --ep-border-radius-s: var(--ep-values-4);
+  --ep-border-radius-m: var(--ep-values-6);
+  --ep-border-radius-l: var(--ep-values-8);
+  --ep-border-radius-xl: var(--ep-values-10);
+  --ep-border-radius-surface-small: var(--ep-values-12);
+  --ep-border-radius-surface-large: var(--ep-values-20);
+  --ep-border-radius-infinity: var(--ep-values-infinity);
+
+  --ep-color-background-fill-body-default: var(--ep-neutral-gray-gray-L02);
+  --ep-color-background-fill-surface-raised-L1: var(--ep-neutral-gray-gray-L03);
+  --ep-color-background-fill-surface-raised-L2: var(--ep-neutral-gray-gray-L04);
+  --ep-color-background-fill-surface-lowered: var(--ep-neutral-gray-gray-L01);
+  --ep-color-background-fill-top-nav-primary: var(--ep-neutral-gray-gray-L03);
+  --ep-color-background-fill-top-nav-secondary: var(--ep-neutral-gray-gray-L03);
+  --ep-color-background-fill-foot-bar: var(--ep-neutral-gray-gray-L02);
+  --ep-color-background-fill-active-primary: var(--ep-primary-primary-500);
+  --ep-color-background-fill-active-active: var(--ep-primary-primary-600);
+  --ep-color-background-fill-active-disabled: var(--ep-primary-primary-900);
+  --ep-color-background-fill-tips: var(--ep-primary-primary-500);
+  --ep-color-background-fill-glow-primary-opacity-40: var(--ep-primary-primary-Opacity);
+  --ep-color-background-fill-glow-primary-opacity-100: var(--ep-primary-primary-500);
+  --ep-color-background-fill-glow-secondary-opacity-40: var(--ep-inverse-inverse-Opacity);
+  --ep-color-background-fill-glow-secondary-opacity-100: var(--ep-inverse-inverse-500);
+  --ep-color-background-fill-gradients-primary-a: var(--ep-primary-primary-500);
+  --ep-color-background-fill-gradients-primary-b: var(--ep-inverse-inverse-500);
+  --ep-color-background-fill-gradients-secondary-a: var(--ep-neutral-gray-gray-L04);
+  --ep-color-background-fill-gradients-secondary-b: var(--ep-primary-primary-900);
+  --ep-color-background-fill-gradients-tertiary-a: var(--ep-primary-primary-600);
+  --ep-color-background-fill-gradients-tertiary-b: var(--ep-inverse-inverse-500);
+
+  --ep-color-border-default: var(--ep-neutral-gray-gray-L05);
+  --ep-color-border-brand: var(--ep-primary-primary-500);
+  --ep-color-border-selected: var(--ep-primary-primary-500);
+  --ep-color-border-danger: var(--ep-accent-red);
+  --ep-color-border-warning: var(--ep-accent-orange);
+  --ep-color-border-success: var(--ep-accent-green);
+  --ep-color-border-highlight: var(--ep-accent-yellow);
+  --ep-color-border-highlight-white: var(--ep-neutral-white-white-100);
+
+  --ep-color-text-brand-primary: var(--ep-primary-primary-500);
+  --ep-color-text-selected: var(--ep-primary-primary-500);
+  --ep-color-text-default: var(--ep-neutral-white-white-100);
+  --ep-color-text-weak: var(--ep-neutral-white-white-60);
+  --ep-color-text-weaker: var(--ep-neutral-white-white-40);
+  --ep-color-text-weakest: var(--ep-neutral-white-white-20);
+  --ep-color-text-inverse: var(--ep-neutral-white-white-100);
+  --ep-color-text-inverse-disabled: var(--ep-neutral-white-white-40);
+  --ep-color-text-danger: var(--ep-accent-red);
+  --ep-color-text-warning: var(--ep-accent-orange);
+  --ep-color-text-success: var(--ep-accent-green);
+  --ep-color-text-info: var(--ep-accent-blue);
+  --ep-color-text-highlight: var(--ep-accent-yellow);
+  --ep-color-text-highlight-white: var(--ep-neutral-white-white-100);
+  --ep-color-text-highlight-white-weak: var(--ep-neutral-white-white-60);
+  --ep-color-text-highlight-white-weaker: var(--ep-neutral-white-white-40);
+  --ep-color-text-highlight-white-weakest: var(--ep-neutral-white-white-20);
+  --ep-color-text-navigation-default: var(--ep-neutral-white-white-40);
+  --ep-color-text-navigation-selected: var(--ep-neutral-white-white-100);
+
+  --ep-color-icon-brand-primary: var(--ep-primary-primary-500);
+  --ep-color-icon-brand-secondary: var(--ep-inverse-inverse-500);
+  --ep-color-icon-selected: var(--ep-primary-primary-500);
+  --ep-color-icon-default: var(--ep-neutral-white-white-100);
+  --ep-color-icon-weaker: var(--ep-neutral-white-white-40);
+  --ep-color-icon-inverse: var(--ep-neutral-white-white-100);
+  --ep-color-icon-inverse-disabled: var(--ep-neutral-white-white-40);
+  --ep-color-icon-tips: var(--ep-accent-red);
+  --ep-color-icon-danger: var(--ep-accent-red);
+  --ep-color-icon-warning: var(--ep-accent-orange);
+  --ep-color-icon-success: var(--ep-accent-green);
+  --ep-color-icon-info: var(--ep-accent-blue);
+  --ep-color-icon-highlight-white: var(--ep-neutral-white-white-100);
+  --ep-color-icon-highlight: var(--ep-accent-yellow);
+  --ep-color-icon-navigation-default: var(--ep-neutral-white-white-40);
+  --ep-color-icon-navigation-selected: var(--ep-primary-primary-500);
+
+  --ep-color-btn-level-1-bg: rgba(255, 255, 255, 0);
+  --ep-color-btn-level-1-text: rgb(255, 255, 255);
+  --ep-color-btn-level-1-border: rgb(255, 255, 255);
+  --ep-color-btn-level-2-bg: var(--ep-dynamic-primary)
+  --ep-color-btn-level-2-text: var(--ep-color-text-inverse);
+  --ep-color-btn-level-2-border: var(--ep-neutral-transparent);
+  --ep-color-btn-level-3-bg: var(--ep-dynamic-tertiary);
+  --ep-color-btn-level-3-text: var(--ep-color-text-inverse);
+  --ep-color-btn-level-3-border: var(--ep-neutral-transparent);
+  --ep-color-btn-level-4-bg: rgba(255, 255, 255, 0);
+  --ep-color-btn-level-4-text: rgb(255, 255, 255);
+  --ep-color-btn-level-4-border: rgb(255, 255, 255);
+
+  --ep-dynamic-primary: linear-gradient(90deg, var(--ep-color-background-fill-gradients-primary-a, #0A77DA) -27.5%, var(--ep-color-background-fill-gradients-primary-a, #0A77DA) 127.5%);
+  --ep-dynamic-secondary: linear-gradient(90deg, var(--ep-color-background-fill-gradients-secondary-a, rgb(29, 42, 85)) -27.5%, var(--ep-color-background-fill-gradients-secondary-a, rgb(29, 42, 85)) 127.5%);
+  --ep-dynamic-tertiary: linear-gradient(90deg, var(--ep-color-background-fill-gradients-tertiary-a, #357FCF) -27.5%, var(--ep-color-background-fill-gradients-tertiary-b, #66BA20) 127.5%);
+}
+
+.neo-blue {
+  * {
+    font-family: var(--ep-font-family);
+  }
+}

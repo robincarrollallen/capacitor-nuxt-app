@@ -1,0 +1,272 @@
+:root[data-theme="Layout2:SupremeGreen"] {
+  /* 重点色彩 */
+  --ep-accent-blue: rgb(92, 130, 245);
+  --ep-accent-red: rgb(230, 64, 33);
+  --ep-accent-orange: rgb(252, 151, 76);
+  --ep-accent-green: rgb(83, 193, 84);
+  --ep-accent-yellow: rgb(245, 200, 76);
+
+  /* 白色透明度系列 */
+  --ep-neutral-white-white-100: rgb(255, 255, 255);
+  --ep-neutral-white-white-90: rgba(255, 255, 255, 0.90);
+  --ep-neutral-white-white-80: rgba(255, 255, 255, 0.80);
+  --ep-neutral-white-white-70: rgba(255, 255, 255, 0.70);
+  --ep-neutral-white-white-60: rgba(255, 255, 255, 0.60);
+  --ep-neutral-white-white-50: rgba(255, 255, 255, 0.50);
+  --ep-neutral-white-white-40: rgba(255, 255, 255, 0.40);
+  --ep-neutral-white-white-30: rgba(255, 255, 255, 0.30);
+  --ep-neutral-white-white-20: rgba(255, 255, 255, 0.20);
+  --ep-neutral-white-white-10: rgba(255, 255, 255, 0.10);
+
+  /* 黑色透明度系列 */
+  --ep-neutral-black-black-100: rgb(0, 0, 0);
+  --ep-neutral-black-black-90: rgba(0, 0, 0, 0.90);
+  --ep-neutral-black-black-80: rgba(0, 0, 0, 0.80);
+  --ep-neutral-black-black-70: rgba(0, 0, 0, 0.70);
+  --ep-neutral-black-black-60: rgba(0, 0, 0, 0.60);
+  --ep-neutral-black-black-50: rgba(0, 0, 0, 0.50);
+  --ep-neutral-black-black-40: rgba(0, 0, 0, 0.40);
+  --ep-neutral-black-black-30: rgba(0, 0, 0, 0.30);
+  --ep-neutral-black-black-20: rgba(0, 0, 0, 0.20);
+  --ep-neutral-black-black-10: rgba(0, 0, 0, 0.10);
+
+  /* 数值变量 */
+  --ep-values-2: 0.125rem;
+  --ep-values-4: 0.25rem;
+  --ep-values-6: 0.375rem;
+  --ep-values-8: 0.5rem;
+  --ep-values-10: 0.625rem;
+  --ep-values-12: 0.75rem;
+  --ep-values-14: 0.875rem;
+  --ep-values-16: 1rem;
+  --ep-values-18: 1.125rem;
+  --ep-values-20: 1.25rem;
+  --ep-values-24: 1.5rem;
+  --ep-values-32: 2rem;
+  --ep-values-36: 2.25rem;
+  --ep-values-70: 4.375rem;
+  --ep-values-200: 200;
+  --ep-values-400: 400;
+  --ep-values-600: 600;
+  --ep-values-700: 700;
+  --ep-values-900: 900;
+  --ep-values-infinity: 9999px;
+
+  /* 主色系 - 绿色主题 - 完整色阶 */
+  --ep-primary-primary-900: rgb(11, 86, 7);
+  --ep-primary-primary-800: rgb(14, 112, 9);
+  --ep-primary-primary-700: rgb(18, 145, 11);
+  --ep-primary-primary-600: rgb(23, 186, 15);
+  --ep-primary-primary-500: rgb(25, 204, 16);
+  --ep-primary-primary-400: rgb(101, 221, 95);
+  --ep-primary-primary-300: rgb(149, 232, 145);
+  --ep-primary-primary-200: rgb(184, 239, 181);
+  --ep-primary-primary-100: rgb(232, 250, 231);
+  --ep-primary-primary-Opacity: rgba(25, 204, 16, 0.40);
+
+  /* 副色系 - 红色 - 完整色阶 */
+  --ep-secondary-secondary-900: rgb(89, 1, 20);
+  --ep-secondary-secondary-800: rgb(116, 1, 26);
+  --ep-secondary-secondary-700: rgb(150, 1, 34);
+  --ep-secondary-secondary-600: rgb(192, 2, 44);
+  --ep-secondary-secondary-500: rgb(211, 2, 48);
+  --ep-secondary-secondary-400: rgb(226, 85, 116);
+  --ep-secondary-secondary-300: rgb(235, 139, 160);
+  --ep-secondary-secondary-200: rgb(241, 177, 191);
+  --ep-secondary-secondary-100: rgb(251, 230, 234);
+  --ep-secondary-secondary-Opacity: rgba(211, 2, 48, 0.40);
+
+  /* 三级色系 - 蓝色 - 完整色阶 */
+  --ep-tertiary-tertiary-900: rgb(3, 48, 87);
+  --ep-tertiary-tertiary-800: rgb(4, 63, 114);
+  --ep-tertiary-tertiary-700: rgb(5, 81, 148);
+  --ep-tertiary-tertiary-600: rgb(6, 104, 189);
+  --ep-tertiary-tertiary-500: rgb(7, 114, 208);
+  --ep-tertiary-tertiary-400: rgb(89, 161, 224);
+  --ep-tertiary-tertiary-300: rgb(141, 190, 233);
+  --ep-tertiary-tertiary-200: rgb(178, 211, 240);
+  --ep-tertiary-tertiary-100: rgb(230, 241, 250);
+  --ep-tertiary-tertiary-Opacity: rgba(7, 114, 208, 0.40);
+
+  /* 反转色系 - 黄色/金色 - 完整色阶 */
+  --ep-inverse-inverse-900: rgb(107, 72, 0);
+  --ep-inverse-inverse-800: rgb(140, 94, 0);
+  --ep-inverse-inverse-700: rgb(181, 121, 0);
+  --ep-inverse-inverse-600: rgb(232, 156, 0);
+  --ep-inverse-inverse-500: rgb(255, 171, 0);
+  --ep-inverse-inverse-400: rgb(255, 199, 84);
+  --ep-inverse-inverse-300: rgb(255, 216, 138);
+  --ep-inverse-inverse-200: rgb(255, 229, 176);
+  --ep-inverse-inverse-100: rgb(255, 247, 230);
+  --ep-inverse-inverse-Opacity: rgba(255, 171, 0, 0.40);
+
+  /* 中性灰色系 - 基于新设计的绿色调灰色 - 完整L01-L10 */
+  --ep-neutral-gray-gray-L01: rgb(10, 13, 10);
+  --ep-neutral-gray-gray-L02: rgb(13, 18, 13);
+  --ep-neutral-gray-gray-L03: rgb(18, 23, 19);
+  --ep-neutral-gray-gray-L04: rgb(23, 33, 23);
+  --ep-neutral-gray-gray-L05: rgb(29, 41, 30);
+  --ep-neutral-gray-gray-L06: rgb(72, 134, 76);
+  --ep-neutral-gray-gray-L07: rgb(95, 162, 100);
+  --ep-neutral-gray-gray-L08: rgb(126, 179, 129);
+  --ep-neutral-gray-gray-L09: rgb(192, 216, 193);
+  --ep-neutral-gray-gray-L10: rgb(223, 236, 224);
+  --ep-neutral-transparent: rgba(255, 255, 255, 0);
+
+  /* === 新增变量 === */
+
+  /* 特殊背景色 */
+  --ep-color-background-neutral: rgba(9, 30, 66, 0.06);
+
+  /* 弱渐变系统 */
+  --ep-color-background-fill-gradients-tertiary-weak-a: var(--ep-neutral-gray-gray-L02);
+  --ep-color-background-fill-gradients-tertiary-weak-b: var(--ep-neutral-gray-gray-L05);
+
+  /* 白色透明度快捷方式 */
+  --ep-neutral-white-60: rgba(255, 255, 255, 0.60);
+  --ep-neutral-white-40: rgba(255, 255, 255, 0.40);
+  --ep-neutral-white-20: rgba(255, 255, 255, 0.20);
+
+  /* 重点色系统 (accent colors) */
+  --ep-accent-colors-blue: rgb(92, 130, 245);
+  --ep-accent-colors-red: rgb(230, 64, 33);
+  --ep-accent-colors-orange: rgb(252, 151, 76);
+  --ep-accent-colors-green: rgb(83, 193, 84);
+  --ep-accent-colors-yellow: rgb(245, 200, 76);
+
+  /* 字体设置 */
+  --ep-default-font-family: 'Prompt', -apple-system, 'Roboto', sans-serif;
+  --ep-font-family: 'Prompt', -apple-system, 'Roboto', sans-serif;
+  --ep-border-radius-surface-default: var(--ep-values-6);
+
+  /* 字体大小 */
+  --ep-font-size-xs: var(--ep-values-10);
+  --ep-font-size-s: var(--ep-values-12);
+  --ep-font-size-m: var(--ep-values-14);
+  --ep-font-size-l: var(--ep-values-16);
+  --ep-font-size-xl: var(--ep-values-18);
+  --ep-font-size-xxl: var(--ep-values-24);
+  --ep-font-size-xxxl: var(--ep-values-36);
+  --ep-font-size-xxxxl: var(--ep-values-70);
+
+  /* 字体权重 */
+  --ep-font-weight-light: var(--ep-values-200);
+  --ep-font-weight-regular: var(--ep-values-400);
+  --ep-font-weight-medium: var(--ep-values-600);
+  --ep-font-weight-bold: var(--ep-values-700);
+
+  /* 圆角设置 */
+  --ep-border-radius-xs: var(--ep-values-2);
+  --ep-border-radius-s: var(--ep-values-4);
+  --ep-border-radius-m: var(--ep-values-6);
+  --ep-border-radius-l: var(--ep-values-8);
+  --ep-border-radius-xl: var(--ep-values-10);
+  --ep-border-radius-surface-small: var(--ep-values-12);
+  --ep-border-radius-surface-large: var(--ep-values-20);
+  --ep-border-radius-infinity: var(--ep-values-infinity);
+
+  /* 背景色填充 */
+  --ep-color-background-fill-body-default: var(--ep-neutral-gray-gray-L02);
+  --ep-color-background-fill-surface-raised-L1: var(--ep-neutral-gray-gray-L03);
+  --ep-color-background-fill-surface-raised-L2: var(--ep-neutral-gray-gray-L04);
+  --ep-color-background-fill-surface-lowered: var(--ep-neutral-gray-gray-L01);
+  --ep-color-background-fill-top-nav-primary: var(--ep-neutral-gray-gray-L03);
+  --ep-color-background-fill-top-nav-secondary: var(--ep-neutral-gray-gray-L03);
+  --ep-color-background-fill-foot-bar: var(--ep-neutral-gray-gray-L01);
+  --ep-color-background-fill-active-primary: var(--ep-primary-primary-500);
+  --ep-color-background-fill-active-active: var(--ep-primary-primary-600);
+  --ep-color-background-fill-active-disabled: var(--ep-primary-primary-900);
+  --ep-color-background-fill-tips: var(--ep-primary-primary-500);
+  --ep-color-background-fill-glow-primary-opacity-40: var(--ep-primary-primary-Opacity);
+  --ep-color-background-fill-glow-primary-opacity-100: var(--ep-primary-primary-500);
+  --ep-color-background-fill-glow-secondary-opacity-40: var(--ep-inverse-inverse-Opacity);
+  --ep-color-background-fill-glow-secondary-opacity-100: var(--ep-inverse-inverse-500);
+  --ep-color-background-fill-gradients-primary-a: var(--ep-primary-primary-700);
+  --ep-color-background-fill-gradients-primary-b: var(--ep-primary-primary-500);
+  --ep-color-background-fill-gradients-secondary-a: var(--ep-neutral-gray-gray-L04);
+  --ep-color-background-fill-gradients-secondary-b: var(--ep-primary-primary-900);
+  --ep-color-background-fill-gradients-tertiary-a: var(--ep-tertiary-tertiary-700);
+  --ep-color-background-fill-gradients-tertiary-b: var(--ep-tertiary-tertiary-500);
+  --ep-color-background-fill-gradients-tertiary-weak-a: var(--ep-neutral-gray-gray-L02);
+  --ep-color-background-fill-gradients-tertiary-weak-b: var(--ep-neutral-gray-gray-L05);
+
+  /* 边框颜色 */
+  --ep-color-border-default: var(--ep-neutral-gray-gray-L05);
+  --ep-color-border-brand: var(--ep-primary-primary-500);
+  --ep-color-border-selected: var(--ep-primary-primary-500);
+  --ep-color-border-danger: var(--ep-accent-red);
+  --ep-color-border-warning: var(--ep-accent-orange);
+  --ep-color-border-success: var(--ep-accent-green);
+  --ep-color-border-highlight: var(--ep-accent-yellow);
+  --ep-color-border-highlight-white: var(--ep-neutral-white-white-100);
+
+  /* 文本颜色 */
+  --ep-color-text-brand-primary: var(--ep-primary-primary-500);
+  --ep-color-text-selected: var(--ep-primary-primary-500);
+  --ep-color-text-default: var(--ep-neutral-white-white-100);
+  --ep-color-text-weak: var(--ep-neutral-white-white-60);
+  --ep-color-text-weaker: var(--ep-neutral-white-white-40);
+  --ep-color-text-weakest: var(--ep-neutral-white-white-20);
+  --ep-color-text-inverse: var(--ep-neutral-white-white-100);
+  --ep-color-text-inverse-disabled: var(--ep-neutral-white-white-40);
+  --ep-color-text-danger: var(--ep-accent-red);
+  --ep-color-text-warning: var(--ep-accent-orange);
+  --ep-color-text-success: var(--ep-accent-green);
+  --ep-color-text-info: var(--ep-accent-blue);
+  --ep-color-text-highlight: var(--ep-accent-yellow);
+  --ep-color-text-highlight-white: var(--ep-neutral-white-white-100);
+  --ep-color-text-highlight-white-weak: var(--ep-neutral-white-white-60);
+  --ep-color-text-highlight-white-weaker: var(--ep-neutral-white-white-40);
+  --ep-color-text-highlight-white-weakest: var(--ep-neutral-white-white-20);
+  --ep-color-text-navigation-default: var(--ep-neutral-white-white-40);
+  --ep-color-text-navigation-selected: var(--ep-neutral-white-white-100);
+
+  /* 图标颜色 */
+  --ep-color-icon-brand-primary: var(--ep-primary-primary-500);
+  --ep-color-icon-brand-secondary: var(--ep-inverse-inverse-500);
+  --ep-color-icon-selected: var(--ep-primary-primary-500);
+  --ep-color-icon-default: var(--ep-primary-primary-500);
+  --ep-color-icon-weaker: var(--ep-neutral-white-white-40);
+  --ep-color-icon-inverse: var(--ep-neutral-white-white-100);
+  --ep-color-icon-inverse-disabled: var(--ep-neutral-white-white-40);
+  --ep-color-icon-tips: var(--ep-accent-red);
+  --ep-color-icon-danger: var(--ep-accent-red);
+  --ep-color-icon-warning: var(--ep-accent-orange);
+  --ep-color-icon-success: var(--ep-accent-green);
+  --ep-color-icon-info: var(--ep-accent-blue);
+  --ep-color-icon-highlight: var(--ep-accent-yellow);
+  --ep-color-icon-highlight-white: var(--ep-neutral-white-white-100);
+  --ep-color-icon-navigation-default: var(--ep-neutral-white-white-40);
+  --ep-color-icon-navigation-selected: var(--ep-primary-primary-500);
+
+  /* 按钮颜色 - 根据设计变量表修正 */
+  --ep-color-btn-level-1-bg: var(--ep-neutral-transparent);
+  --ep-color-btn-level-1-text: var(--ep-neutral-transparent);
+  --ep-color-btn-level-1-border: var(--ep-neutral-transparent);
+  --ep-color-btn-level-2-bg: var(--ep-neutral-transparent);
+  --ep-color-btn-level-2-text: var(--ep-color-text-inverse);
+  --ep-color-btn-level-2-border: var(--ep-primary-primary-500);
+  --ep-color-btn-level-3-bg: linear-gradient(90deg, var(--ep-inverse-inverse-600), var(--ep-inverse-inverse-500));
+  --ep-color-btn-level-3-text: var(--ep-color-text-inverse);
+  --ep-color-btn-level-3-border: var(--ep-inverse-inverse-400);
+  --ep-color-btn-level-4-bg: var(--ep-neutral-transparent);
+  --ep-color-btn-level-4-text: var(--ep-neutral-transparent);
+  --ep-color-btn-level-4-border: var(--ep-neutral-transparent);
+
+  /* 动态渐变 - 根据设计变量表修正 */
+  --ep-dynamic-primary: linear-gradient(90deg, var(--ep-color-background-fill-gradients-primary-a) -27%, var(--ep-color-background-fill-gradients-primary-b) 127%);
+  --ep-dynamic-secondary: linear-gradient(90deg, var(--ep-color-background-fill-gradients-secondary-a) 0%, var(--ep-color-background-fill-gradients-secondary-b) 118%);
+  --ep-dynamic-tertiary: linear-gradient(90deg, var(--ep-color-background-fill-gradients-tertiary-a) -27%, var(--ep-color-background-fill-gradients-tertiary-b) 127%);
+  --ep-dynamic-tertiary-weak: linear-gradient(180deg, var(--ep-color-background-fill-gradients-tertiary-weak-a) 0%, var(--ep-color-background-fill-gradients-tertiary-weak-b) 118%);
+
+  /* Ionic组件的默认字体 */
+  --ion-font-family: var(--ep-font-family);
+  /* 这个显示页面的背景色 */
+  --ion-background-color: var(--ep-color-background-fill-body-default);
+}
+
+.theme-25 {
+  * {
+    font-family: var(--ep-font-family);
+  }
+}

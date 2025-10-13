@@ -1,0 +1,19 @@
+{
+  "reward": {
+    "amount": "9000",
+    "count": 3
+  },
+  "commission": [
+    {
+      "amount": 1000,
+      "levelId": "d4e9c7013d3740e3a207e0b3af1db107",
+      "status": "RECEIVED"
+    },
+    {
+      "amount": 2000,
+      "levelId": "f481103b921f4ec08b2ccbbdf333023d",
+      "status": "DISTRIBUTED"
+    }
+  ],
+  "todayRewardCount": 0
+}

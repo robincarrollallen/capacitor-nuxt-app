@@ -1,0 +1,66 @@
+{
+  "info": {
+    "tenantId": 9390494,
+    "type": "app",
+    "tenantName": "bc",
+    "regionId": 9,
+    "regionName": "巴西",
+    "timezone": "Etc/GMT+3",
+    "currency": "BRL",
+    "language": "pt-BR",
+    "rechargeRatio": 10000,
+    "phoneCode": "+55",
+    "code": "BR",
+    "domian": "zhu-2.7-a-6-w.com",
+    "landing": null,
+    "templateId": null,
+    "jumpDomain": null,
+    "templateName": null,
+    "style": null,
+    "styleConfig": null,
+    "authentication": null,
+    "isSeo": false,
+    "seoSiteName": null,
+    "seoLogo": null,
+    "seoSiteDesc": null,
+    "skinType": "Layout2",
+    "skinTwoType": "Layout2:NeoBlue",
+    "domainId": 420,
+    "jumpDomainType": "main",
+    "isNativeApp": false,
+    "jumpWay": "auto",
+    "jumpWayImg": "",
+    "otherConfig": {},
+    "imitationAppType": null,
+    "landingDomainList": [],
+    "domainAntiSealingList": [],
+    "apkDownloadUrlConfig": {
+      "list": [],
+      "isOpen": false,
+      "isOpenDownloadPageJumpForIos": false
+    },
+    "antiSealingLandingDomainList": [],
+    "seo": {
+      "title": "1111",
+      "description": "1111",
+      "image": "https://upload-us.b83.xyz/1718365095455/1.png"
+    }
+  },
+  "configList": {
+    "siteName": "bc11",
+    "appIcon": "https://upload-us.b83.xyz/1719570695193/Snipaste.png",
+    "siteLogo": "https://upload-us.b83.xyz/1718364626528/bc25d0d2-1ccc-48c0-9dc5-0bcb132b5d0e.png",
+    "paymentPartnerPic": "https://uploads4sys-dev.po7.xyz/rechargePartner/rechargePD_Layout2NeoBlue.png",
+    "appLanguage": [
+      "en-US",
+      "pt-BR"
+    ]
+  },
+  "loginConfig": {
+    "allowUserChangePassword": true,
+    "allowChangeAssetPassword": false,
+    "allowChangePhone": false,
+    "allowChangeEmail": false,
+    "allowEmailPhoneLogin": false
+  }
+}

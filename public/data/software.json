@@ -1,0 +1,11 @@
+[
+  { "name": "Email", "type": "Email", "isOpen": true, "sort": 9 },
+  { "name": "YouTube", "type": "YouTube", "isOpen": true, "sort": 8 },
+  { "name": "Kwai", "type": "Kwai", "isOpen": true, "sort": 7 },
+  { "name": "Twitter", "type": "Twitter", "isOpen": true, "sort": 6 },
+  { "name": "WhatsApp", "type": "WhatsApp", "isOpen": true, "sort": 5 },
+  { "name": "TikTok", "type": "TikTok", "isOpen": true, "sort": 4 },
+  { "name": "Instagram", "type": "Instagram", "isOpen": true, "sort": 3 },
+  { "name": "Telegram", "type": "Telegram", "isOpen": true, "sort": 2 },
+  { "name": "Facebook", "type": "Facebook", "isOpen": true, "sort": 1 }
+]
