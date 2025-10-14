@@ -40,7 +40,7 @@ aside {
 	flex-direction: column;
 	color: var(--ep-color-text-default);
   background-color: var(--ep-color-background-fill-body-default);
-	padding-top: env(safe-area-inset-top);
+	padding-top: calc(env(safe-area-inset-top) + .75rem);
 }
 
 @media (min-width: 540px) and (max-width: 1023px) {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-	agentMediaList: SoftwareType
+  agentMediaList: SoftwareType
 }>()
 
 const shareTabsRef = ref() // 分享图标切换组件
@@ -14,62 +14,67 @@ let scrollLeft: number
  * @description 鼠标按下事件
  */
 function handleMouseDown(e: any) {
-	console.log('handleMouseDown', e.pageX, e.currentTarget.offsetLeft)
-	isDown = true
-	startX = e.pageX - e.currentTarget.offsetLeft
-	scrollLeft = e.currentTarget.scrollLeft
+  console.log("handleMouseDown", e.pageX, e.currentTarget.offsetLeft)
+  isDown = true
+  startX = e.pageX - e.currentTarget.offsetLeft
+  scrollLeft = e.currentTarget.scrollLeft
 }
 function handleMouseUp() {
-	isDown = false
-	disableTab.value = false
+  isDown = false
+  disableTab.value = false
 }
 function handleMouseLeave() {
-	isDown = false
-	disableTab.value = false
+  isDown = false
+  disableTab.value = false
 }
 function handleMouseMove(e: any) {
-	if (!isDown)
-		return
-	console.log('>>>>>>>>>>>>>>', e.pageX, e.currentTarget.offsetLeft)
-	e.preventDefault()
-	disableTab.value = true
-	const x = e.pageX - e.currentTarget.offsetLeft
-	const walk = (x - startX)
-	e.currentTarget.scrollLeft = scrollLeft - walk
+  if (!isDown)
+    return
+  console.log(">>>>>>>>>>>>>>", e.pageX, e.currentTarget.offsetLeft)
+  e.preventDefault()
+  disableTab.value = true
+  const x = e.pageX - e.currentTarget.offsetLeft
+  const walk = (x - startX)
+  e.currentTarget.scrollLeft = scrollLeft - walk
 }
-
 </script>
 
 <template>
-	<div class="agent-media">
-		<div class="agent-media-title">
-			<span>{{ $t('activity.agent2') }}</span>
-		</div>
-		<div class="agent-media-link">
-			<van-tabs ref="shareTabsRef" class="share-tabs" @mousedown="handleMouseDown" @mouseup="handleMouseUp" @mouseleave="handleMouseLeave" @mousemove="handleMouseMove">
-				<van-tab v-for="item in props.agentMediaList" :key="item.name">
-					<template #title><SvgIcon class="share-icon" :url="`@/assets/svg/share/first/${item.name.toLowerCase()}.svg`" /></template>
-				</van-tab>
-			</van-tabs>
-			<div class="share-url-warp">
-				<div class="url-title">Invite link ：</div>
-				<div class="url-link">https://tg3-gray.7-v-s-8.com/?pid=575718350</div>
-				<SvgIcon url="@/assets/svg/copy.svg" class="copy-icon" @click="copy('https://tg3-gray.7-v-s-8.com/?pid=575718350')"/>
-			</div>
-			<div class="details-warp">
-				<div class="details-content">
-					<div class="bet-register-count">
-						My direct subordinates
-						<span class="count-text">{{ `${0}` }}</span>
-						{{ `${$t('Person')} (${$t('Valid')}` }}
-						<span class="count-text">{{ `${0} ` }}</span>
-						<span class="valid-text">{{ `${$t('Person')})` }}</span>
-					</div>
-					<Button> {{ `${$t('Details')} >` }}</Button>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="agent-media">
+    <div class="agent-media-title">
+      <span>{{ $t('activity.agent2') }}</span>
+    </div>
+    <div class="agent-media-link">
+      <van-tabs ref="shareTabsRef" class="share-tabs" @mousedown="handleMouseDown" @mouseup="handleMouseUp" @mouseleave="handleMouseLeave" @mousemove="handleMouseMove">
+        <van-tab v-for="item in props.agentMediaList" :key="item.name">
+          <template #title>
+            <SvgIcon class="share-icon" :url="`@/assets/svg/share/first/${item.name.toLowerCase()}.svg`" />
+          </template>
+        </van-tab>
+      </van-tabs>
+      <div class="share-url-warp">
+        <div class="url-title">
+          Invite link ：
+        </div>
+        <div class="url-link">
+          https://tg3-gray.7-v-s-8.com/?pid=575718350
+        </div>
+        <SvgIcon url="@/assets/svg/copy.svg" class="copy-icon" @click="copy('https://tg3-gray.7-v-s-8.com/?pid=575718350')" />
+      </div>
+      <div class="details-warp">
+        <div class="details-content">
+          <div class="bet-register-count">
+            My direct subordinates
+            <span class="count-text">{{ `${0}` }}</span>
+            {{ `${$t('Person')} (${$t('Valid')}` }}
+            <span class="count-text">{{ `${0} ` }}</span>
+            <span class="valid-text">{{ `${$t('Person')})` }}</span>
+          </div>
+          <Button> {{ `${$t('Details')} >` }}</Button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="less" scoped>
@@ -162,7 +167,7 @@ function handleMouseMove(e: any) {
 			}
 
 			.copy-icon {
-				transform: scale(.9);
+				width: 1rem;
 			}
 		}
 
