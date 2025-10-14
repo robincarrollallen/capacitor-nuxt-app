@@ -1,0 +1,35 @@
+.earth-svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+	border-radius: var(--ep-border-radius-s, .25rem);
+}
+
+.earth-svg.style-25 {
+	padding: .375rem;
+	width: 2.125rem;
+	height: 2.125rem;
+	border: .0625rem solid var(--ep-color-border-default);
+	background: var(--ep-color-background-fill-surface-raised-L2);
+}
+
+.change-language-wrap {
+	width: max-content;
+	color: var(--ep-color-text-default);
+
+	.change-language-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: var(--ep-color-background-fill-surface-raised-L1);
+
+		&.active {
+			background: var(--ep-color-background-fill-surface-raised-L2);
+		}
+
+		.flag-icon {
+			border-radius: 50%;
+		}
+	}
+}

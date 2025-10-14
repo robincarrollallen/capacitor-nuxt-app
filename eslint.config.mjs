@@ -8,6 +8,7 @@ export default withNuxt(
     rules: {
       "no-console": 0,
       "node/prefer-global/process": "off",
+      "vue/html-self-closing": "warn", // 自闭合标签
     },
   }),
 )

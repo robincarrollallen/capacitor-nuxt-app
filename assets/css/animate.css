@@ -1,0 +1,113 @@
+/* Spin animation */
+@keyframes spin {
+	0% {
+			transform: rotate(0deg);
+	}
+	100% {
+			transform: rotate(360deg);
+	}
+}
+
+/* Shake status animation */
+@keyframes shake-status {
+  0% {}
+
+  30% {
+    scale: 1.1;
+    transform: rotate(0deg);
+  }
+
+  40% {
+    transform: rotate(-15deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  60% {
+    transform: rotate(-15deg);
+  }
+
+  70% {
+    transform: rotate(0deg);
+    scale: 1.1;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+/* Shake rotate status animation */
+@keyframes shake-rotate-start {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-15deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Shake scale star animation */
+@keyframes shake-scale-start {
+  0% {
+		scale: 1;
+  }
+
+  90% {
+		scale: 1.1 .9;
+  }
+
+	100% {
+		scale: 1;
+	}
+}
+
+
+/* Shake scale star animation */
+@keyframes shake-scale-opening {
+  0% {
+		transform: scale(1, 1)
+  }
+
+	20% {
+		transform: scale(0.97, 1.07);
+		transform-origin: 50% 100%;
+	}
+
+	40% {
+		transform: scale(1, 1)
+	}
+
+	60% {
+		transform: scale(0.98, 1.04);
+		transform-origin: 50% 100%;
+	}
+
+	80% {
+		transform: scale(1, 1)
+	}
+
+	90% {
+		transform: scale(0.99, 1.01);
+		transform-origin: 50% 100%;
+	}
+
+	100% {
+		transform: scale(1, 1)
+	}
+}

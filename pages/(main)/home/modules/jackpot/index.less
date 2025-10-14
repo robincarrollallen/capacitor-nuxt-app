@@ -1,0 +1,60 @@
+.bonus {
+	margin-top: 0.75rem;
+	display: flex;
+	align-items: center;
+	padding: .75rem;
+	position: relative;
+
+	.bonus-top-line {
+		position: absolute;
+		top: 0;
+		left: 0.75rem;
+		width: calc(100% - 1.5rem);
+		height: 2px;
+		background: #FF8743;
+		box-shadow:
+			0px 2.51px 2.54px 0px #FFA20032,
+			0px 6.34px 6.43px 0px #FFA20047,
+			0px 12.94px 13.11px 0px #FFA20059,
+			0px 26.65px 27.01px 0px #FFA2006F,
+			0px 73px 74px 0px #FFA200A1;
+
+	}
+
+
+	.bonus-img {
+		width: 5.5rem;
+		height: 5.5rem;
+		font-size: 5.5rem;
+		margin-inline-end: 0.375rem;
+	}
+
+	.bonus-content {
+		flex: 1;
+		width: 0;
+		gap: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		.bonus-content-inner {
+			line-height: 1;
+
+			.bonus-money,
+			.bonus-currency {
+				font-size: 2.375rem;
+				font-weight: 600;
+				color: var(--ep-color-text-brand-primary);
+			}
+
+			.bonus-currency {
+				margin-inline-end: 0.3125rem;
+			}
+		}
+
+		.bonus-title {
+			font-size: 0.875rem;
+			color: var(--ep-color-text-weak)
+		}
+	}
+}

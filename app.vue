@@ -5,7 +5,9 @@ const meta = ref({
   icon: "https://upload-us.b83.xyz/s1/app-icon/9287543/icon.png",
 })
 
-if (import.meta.server) {
+const config = useRuntimeConfig()
+
+if (config.public.ssr) {
   const { data } = await useFetch("/api/meta")
   meta.value = data.value ?? meta.value
 }
@@ -26,3 +28,9 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
 </template>
+
+<style lang="less">
+@import '@/assets/css/global.css';
+@import '@/assets/css/animate.css';
+@import '@/assets/css/root.css';
+</style>

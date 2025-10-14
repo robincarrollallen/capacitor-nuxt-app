@@ -1,6 +1,7 @@
 import { LANGUAGE_REVERSE, LANGUAGE_TYPE } from "./enums"
 
 export default defineNuxtConfig({
+  // @ts-expect-error - ssr option type issue
   ssr: process.env.NUXT_SSR === "true",
 
   devtools: { enabled: false },
@@ -9,7 +10,7 @@ export default defineNuxtConfig({
 
   spaLoadingTemplate: false,
 
-  modules: ["@nuxt/eslint", "@nuxtjs/tailwindcss", "@nuxtjs/i18n", "@pinia/nuxt"],
+  modules: ["@nuxt/eslint", "@nuxtjs/tailwindcss", "@nuxtjs/i18n", "@pinia/nuxt", "@vant/nuxt"],
 
   eslint: { config: { standalone: false } },
 
@@ -36,6 +37,32 @@ export default defineNuxtConfig({
     compilation: {
       strictMessage: false, // 不严格检查消息格式
       escapeHtml: true, // 转义 HTML 标签
+    },
+  },
+
+  vant: {
+    lazyload: {
+      lazyComponent: true,
+    },
+  },
+
+  css: ["swiper/css", "swiper/css/autoplay", "swiper/css/pagination"],
+
+  runtimeConfig: {
+    public: {
+      apiBase: "", // 对应 NUXT_PUBLIC_API_BASE
+      ssr: process.env.NUXT_SSR === "true",
+    },
+  },
+
+  app: {
+    head: {
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
+        },
+      ],
     },
   },
 })

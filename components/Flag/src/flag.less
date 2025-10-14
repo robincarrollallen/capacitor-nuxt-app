@@ -1,0 +1,46 @@
+.fib, .fi {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.fi {
+  position: relative;
+  display: inline-block;
+  width: 1.333333em;
+  line-height: 1em;
+}
+.fi:before {
+  content: " ";
+}
+.fi.fis {
+  width: var(--flag-size, 1em);
+	height: var(--flag-size, 1em);
+}
+
+// https://github.com/lipis/flag-icons/blob/main/flags Download flag icon address
+.fi-us.fis {
+  background-image: url(./flags/us.svg);
+}
+.fi-in.fis {
+  background-image: url(./flags/in.svg);
+}
+
+.fi-id.fis {
+  background-image: url(./flags/id.svg);
+}
+
+.fi-br.fis {
+  background-image: url(./flags/br.svg);
+}
+
+.fi-cn.fis {
+  background-image: url(./flags/cn.svg);
+}
+.fi-ph.fis {
+  background-image: url(./flags/ph.svg);
+}
+
+.fi-vn.fis {
+  background-image: url(./flags/vn.svg);
+}
