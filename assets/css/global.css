@@ -1,3 +1,13 @@
+/* 全局隐藏滚动条 */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
 /* Copy icon */
 .copy-icon {
   cursor: pointer;
@@ -54,4 +64,8 @@
 
 .page-safe-area {
 	padding-top: env(safe-area-inset-top);
+}
+
+.van-toast--loading {
+	--van-toast-background: transparent
 }

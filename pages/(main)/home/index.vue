@@ -4,6 +4,7 @@ import { type ComponentConfig, getComponentConfig } from "@/theme/componentConfi
 defineOptions({
   name: "HomePage",
 })
+
 const tenantStore = useTenantStore()
 const layoutStore = useLayoutStore()
 
@@ -75,7 +76,7 @@ const drawerComponent = computed(() => {
 		z-index: 199;
 	}
 
-	.main-warp {
+	main {
 		flex: 1;
 		gap: 1rem;
 		display: grid;
@@ -83,5 +84,9 @@ const drawerComponent = computed(() => {
 		overflow: hidden auto;
 		grid-template-columns: 100%;
 	}
+
+  .content {
+    padding: 16px 16px 160px;
+  }
 }
 </style>

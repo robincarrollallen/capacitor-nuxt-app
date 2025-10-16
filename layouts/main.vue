@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LoginPopup from "@/widgets/loginPopup/index.vue"
+import IosPwaGuideSheet from "@/widgets/iosPwaGuideSheet/index.vue"
 import { getComponentConfig } from "@/theme/componentConfig"
 
 const layoutStore = useLayoutStore()
@@ -44,6 +45,7 @@ onUnmounted(() => {
     </div>
     <Tabbar ref="tabbarRef" />
     <LoginPopup />
+    <IosPwaGuideSheet />
   </NuxtLayout>
 </template>
 

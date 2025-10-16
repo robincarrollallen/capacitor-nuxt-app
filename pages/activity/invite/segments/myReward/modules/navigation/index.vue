@@ -1,18 +1,20 @@
 <script setup lang="ts">
-import { useNavigationData } from './data'
+import { useNavigationData } from "./data"
 
 const { agentNavigationList } = useNavigationData()
 </script>
 
 <template>
-	<ClientOnly>
-		<div class="navigation-list">
-			<div class="navigation-item" v-for="item in agentNavigationList" :key="item.name">
-				<div class="navigation-item-title">{{ item.name }}</div>
-				<van-icon name="arrow" />
-			</div>
-		</div>
-	</ClientOnly>
+  <ClientOnly>
+    <div class="navigation-list">
+      <div v-for="item in agentNavigationList" :key="item.name" class="navigation-item">
+        <div class="navigation-item-title">
+          {{ item.name }}
+        </div>
+        <van-icon name="arrow" />
+      </div>
+    </div>
+  </ClientOnly>
 </template>
 
 <style lang="less" scoped>

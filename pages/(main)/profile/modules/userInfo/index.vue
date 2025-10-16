@@ -1,9 +1,21 @@
 <script setup lang="ts">
+const router = useRouter()
 const vipStore = useVipStore()
 const userStore = useUserStore()
+const { t } = useI18n()
 
 const user = computed(() => userStore.user)
 const vipLevel = computed(() => safeNumber(vipStore.vipInfo.currentVipLevel?.level))
+
+// TODO: 模拟提现相关信息验证接口
+async function handleWithdraw() {
+  showLoading()
+  await delay(1000)
+  closeToast()
+  showTextPopup(t("popup.tips06"), () => {
+    router.push("/withdraw/password")
+  })
+}
 </script>
 
 <template>
@@ -48,7 +60,7 @@ const vipLevel = computed(() => safeNumber(vipStore.vipInfo.currentVipLevel?.lev
         <SvgIcon src="@/assets/svg/pig.svg" />
         <span>Deposit</span>
       </Button>
-      <Button>
+      <Button @click="handleWithdraw">
         <SvgIcon src="@/assets/svg/wallet.svg" />
         <span>Withdraw</span>
       </Button>
@@ -67,6 +79,7 @@ header {
 		width: 100%;
 		height: auto;
 		position: absolute;
+		pointer-events: none;
 	}
 
 	.user-info {
@@ -108,6 +121,7 @@ header {
 				.svg__icon {
 					width: .875rem;
 					color: var(--ep-color-icon-brand-primary);
+					cursor: pointer;
 				}
 			}
 		}

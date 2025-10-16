@@ -1,54 +1,75 @@
-export const useStatusStore = defineStore('status', () => {
-	const mainLeftDrawerVisible = ref(false)
-	const loginPopupVisible = ref(false)
-	const loginPopupType = ref(0) // 0: login, 1: register
+import { MAIN_PATH, MAIN_PATHS, type MainPathType } from "~/enums/path"
 
-	/** Show main left drawer */
-	const showMainLeftDrawer = () => {
-		mainLeftDrawerVisible.value = true
-	}
+export const useStatusStore = defineStore("status", () => {
+  const iosPwaGuideSheetVisible = ref(false)
+  const mainLeftDrawerVisible = ref(false)
+  const loginPopupVisible = ref(false)
+  const loginPopupType = ref(0) // 0: login, 1: register
+  const route = useRoute()
 
-	/** Hide main left drawer */
-	const hideMainLeftDrawer = () => {
-		mainLeftDrawerVisible.value = false
-	}
+  /** Show main left drawer */
+  const showMainLeftDrawer = () => {
+    mainLeftDrawerVisible.value = true
+  }
 
-	/** Show login popup */
-	const showLoginPopup = () => {
-		loginPopupVisible.value = true
-	}
+  /** Hide main left drawer */
+  const hideMainLeftDrawer = () => {
+    mainLeftDrawerVisible.value = false
+  }
 
-	/** Show register popup */
-	const showRegisterPopup = () => {
-		loginPopupVisible.value = true
-		loginPopupType.value = 1
-	}
+  /** Show login popup */
+  const showLoginPopup = async () => {
+    const path = route.path
+    if (!MAIN_PATHS.includes(path as MainPathType)) {
+      await navigateTo(MAIN_PATH.HOME)
+    }
+    loginPopupVisible.value = true
+  }
 
-	/** Hide login popup */
-	const hideLoginPopup = () => {
-		loginPopupVisible.value = false
-	}
+  /** Show register popup */
+  const showRegisterPopup = () => {
+    loginPopupVisible.value = true
+    loginPopupType.value = 1
+  }
 
-	/** Set login popup type */
-	const resetLoginPopupType = () => {
-		loginPopupType.value = 0
-	}
+  /** Hide login popup */
+  const hideLoginPopup = () => {
+    loginPopupVisible.value = false
+  }
 
-	/** IndexedDB configuration excluding automatic persistence  */
-	const $indexedDB = {
-		exclude: ['mainLeftDrawerVisible', 'loginPopupVisible']
-	}
+  /** Set login popup type */
+  const resetLoginPopupType = () => {
+    loginPopupType.value = 0
+  }
 
-	return {
-		$indexedDB,
-		loginPopupType,
-		loginPopupVisible,
-		mainLeftDrawerVisible,
-		resetLoginPopupType,
-		showMainLeftDrawer,
-		hideMainLeftDrawer,
-		showRegisterPopup,
-		showLoginPopup,
-		hideLoginPopup,
-	}
+  /** IndexedDB configuration excluding automatic persistence  */
+  const $indexedDB = {
+    exclude: ["mainLeftDrawerVisible", "loginPopupVisible"],
+  }
+
+  /** Show ios pwa guide sheet */
+  const showIosPwaGuideSheet = () => {
+    iosPwaGuideSheetVisible.value = true
+  }
+
+  /** Hide ios pwa guide sheet */
+  const hideIosPwaGuideSheet = () => {
+    iosPwaGuideSheetVisible.value = false
+  }
+
+  return {
+    $indexedDB,
+    loginPopupType,
+    loginPopupVisible,
+    mainLeftDrawerVisible,
+    iosPwaGuideSheetVisible,
+    showIosPwaGuideSheet,
+    hideIosPwaGuideSheet,
+    resetLoginPopupType,
+    showMainLeftDrawer,
+    hideMainLeftDrawer,
+    showRegisterPopup,
+    showLoginPopup,
+    hideLoginPopup,
+  }
 })

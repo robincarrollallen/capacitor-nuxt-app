@@ -22,7 +22,7 @@ const { tabs, accountType, username, password, isLogin, isAccount, isPhone, isRe
       <!-- 头部/logo/关闭按钮 -->
       <nav>
         <NavBarLogo />
-        <van-icon class="close-icon" name="cross" @click="statusStore.hideLoginPopup()" />
+        <van-icon class="close-icon" name="cross" @click="statusStore.hideLoginPopup" />
       </nav>
 
       <div class="login-popup-content">

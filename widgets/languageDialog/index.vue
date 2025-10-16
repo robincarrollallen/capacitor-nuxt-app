@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showLanguage } from './data'
+import { showLanguage } from "./data"
 
 const appStore = useAppStore() // Application store
 const systemStore = useSystemStore() // System store
@@ -13,23 +13,23 @@ const showLanguageDialog = computed(() => systemStore.screenWidth >= 540 || stat
  * Change language
  * @param lang Language code
  */
-const changeLanguage = (lang: any) => {
-	appStore.setLocale(lang) // Set language
-	showLanguage.value = false // Close language selection
+function changeLanguage(lang: any) {
+  appStore.setLocale(lang) // Set language
+  showLanguage.value = false // Close language selection
 }
 </script>
 
 <template>
-	<van-dialog v-if="showLanguageDialog" className="language-dialog" v-model:show="showLanguage" :title="$t('label.chooseLanguage')" :show-confirm-button="false" close-on-click-overlay>
-		<div class="language-dialog-list">
-			<div v-for="lang in tenantStore.tenantInfo.appLanguage" :key="lang" class="change-language-item" @click="changeLanguage(lang)">
-				<p class="change-language-item-name">
-					{{ getLanguageName(lang, locale) }}
-				</p>
-				<van-checkbox v-if="locale === lang" :checked="true" />
-			</div>
-		</div>
-	</van-dialog>
+  <van-dialog v-if="showLanguageDialog" v-model:show="showLanguage" class-name="language-dialog" :title="$t('label.chooseLanguage')" :show-confirm-button="false" close-on-click-overlay>
+    <div class="language-dialog-list">
+      <div v-for="lang in tenantStore.tenantInfo.appLanguage" :key="lang" class="change-language-item" @click="changeLanguage(lang)">
+        <p class="change-language-item-name">
+          {{ getLanguageName(lang, locale) }}
+        </p>
+        <van-checkbox v-if="locale === lang" :checked="true" />
+      </div>
+    </div>
+  </van-dialog>
 </template>
 
 <style scoped lang="less">

@@ -10,7 +10,6 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(["loaded"])
 const router = useRouter() // 路由对象
 
 const { autoplay, pagination, bannerList } = useSideBannerLogic()

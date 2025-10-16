@@ -38,7 +38,7 @@
     "graphql"
   ],
   "files.associations": {
-    "*.css": "tailwindcss"
+    "**/tailwind.css": "tailwindcss"
   },
   "editor.quickSuggestions": {
     "strings": true
