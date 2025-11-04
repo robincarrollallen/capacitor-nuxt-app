@@ -39,6 +39,13 @@ export const Components = {
   /** 游戏列表组件 */
   gameWrap: (style: string) => () => import(`@/widgets/gameWrap/${style}/index.vue`),
 
+  /** 排行榜标题组件 */
+  rankTitle: (style: string) => () => import(`@/pages/(main)/home/modules/rank/title/${style}/index.vue`),
+  /** 排行榜头部组件 */
+  rankHeader: (style: string) => () => import(`@/pages/(main)/home/modules/rank/header/${style}/index.vue`),
+  /** 排行榜列表组件 */
+  rankList: (style: string) => () => import(`@/pages/(main)/home/modules/rank/list/${style}/index.vue`),
+
   /** 首页侧边栏组件 */
   drawer: () => import("@/pages/(main)/home/modules/drawer/index.vue"),
   /** 首页侧边栏头部组件 */

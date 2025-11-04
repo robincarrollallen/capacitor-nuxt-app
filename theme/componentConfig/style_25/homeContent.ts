@@ -66,5 +66,28 @@ export const HomeContentComponent = {
         },
       ],
     },
+    {
+      component: Components.layout, // Rank<动态布局>(自定义排序)
+      options: {
+        style: {
+          overflow: "hidden",
+          height: "min-content",
+          borderTop: ".125rem solid var(--ep-color-border-default)",
+          borderRadius: "var(--ep-border-radius-surface-small, .75rem)",
+          background: "var(--ep-color-background-fill-surface-raised-L1)",
+        },
+      },
+      children: [
+        {
+          component: Components.rankTitle(THEME_KEY.STYLE_25), // RankTitle
+        },
+        {
+          component: Components.rankHeader(THEME_KEY.STYLE_25), // RankHeader
+        },
+        {
+          component: Components.rankList(THEME_KEY.STYLE_25), // RankList
+        },
+      ],
+    },
   ],
 }

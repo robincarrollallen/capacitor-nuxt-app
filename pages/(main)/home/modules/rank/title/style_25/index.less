@@ -1,0 +1,33 @@
+.rank-title {
+  gap: 0.5rem;
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding-block: 1.5rem;
+  justify-content: center;
+
+  i {
+    font-size: .75rem;
+    color: var(--ep-color-icon-brand-secondary);
+
+    &.svg__icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle, rgba(25, 204, 16, 0.11) 0%, transparent 100%);
+      }
+    }
+  }
+
+  span {
+    font-size: .875rem;
+    color: var(--ep-color-text-brand-primary);
+    font-weight: var(--ep-font-weight-bold, 700);
+  }
+}

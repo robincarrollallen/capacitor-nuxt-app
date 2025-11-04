@@ -1,0 +1,76 @@
+.rank-header {
+  padding-inline: .75rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+  z-index: 1;
+
+  .rank-header-wrap {
+    display: flex;
+    gap: .75rem;
+    justify-content: center;
+    border-top: .125rem solid var(--ep-color-border-default);
+    border-radius: var(--ep-border-radius-surface-small, .75rem);
+    background: var(--ep-color-background-fill-surface-raised-L1);
+
+    .rank-avatar-warp {
+      z-index: 1;
+      display: flex;
+      width: 5.875rem;
+      height: 11.75rem;
+      position: relative;
+      padding-top: 1.5rem;
+      align-items: center;
+      flex-direction: column;
+      font-size: var(--ep-font-size-s, .75rem);
+
+      &::before {
+        inset: 0;
+        z-index: -1;
+        content: '';
+        position: absolute;
+        background-image: url('@/assets/images/home/bg-rank-avatar-25.png');
+        background-repeat: no-repeat;
+        background-size: 300% 100%;
+      }
+
+      &:nth-child(1) {
+        margin-top: 4rem;
+        &::before {
+          background-position: 50% 0;
+        }
+      }
+
+      &:nth-child(2) {
+        margin-top: 2rem;
+        &::before {
+          background-position: 0 0;
+        }
+      }
+
+      &:nth-child(3) {
+        margin-top: 4rem;
+        &::before {
+          background-position: 100% 0;
+        }
+      }
+
+      .van-image {
+        width: 4rem;
+        height: 4rem;
+        overflow: hidden;
+        border-radius: 50%;
+        position: relative;
+        z-index: -2;
+      }
+
+      h1 {
+        margin-top: .5rem;
+        color: var(--ep-color-text-highlight-white);
+      }
+
+      b {
+        color: var(--ep-color-text-warning);
+      }
+    }
+  }
+}

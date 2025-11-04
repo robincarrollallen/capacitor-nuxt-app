@@ -1,0 +1,64 @@
+.rank-list-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: var(--ep-font-size-s, 0.75rem);
+
+  b {
+    text-align: center;
+    color: var(--ep-color-text-weaker);
+
+    &:first-child {
+      width: 4rem;
+    }
+
+    &:nth-child(2) {
+      flex: 1;
+    }
+
+    &:last-child {
+      width: 6rem;
+    }
+  }
+}
+
+.rank-item {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: var(--ep-font-size-s, 0.75rem);
+
+  > label {
+    width: 4rem;
+    text-align: center;
+    color: var(--ep-color-text-brand-primary);
+    font-weight: var(--ep-font-weight-medium, 600);
+  }
+
+  > div {
+    flex: 1;
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .van-image {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    > span {
+      color: var(--ep-color-text-weak);
+    }
+  }
+
+  > b {
+    width: 6rem;
+    text-align: center;
+    color: var(--ep-color-text-default);
+    font-weight: var(--ep-font-weight-medium, 600);
+  }
+}
