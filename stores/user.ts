@@ -1,14 +1,11 @@
 export const useUserStore = defineStore('user', () => {
 	const user = ref<Record<string, any>>({}) // 用户信息
 	const defaultAvatar = ref('') // 默认头像
-
-	// 监听 token 变化
-	const { token } = useAuth()
-
-	watch(token, (newToken) => {
-		if (!newToken) {
-			user.value = {}
-		}
+	const token: Ref = useCookie('token', {
+		default: () => '',
+		secure: false, // 不使用 secure 属性，因为 cookie 在本地存储，不需要 HTTPS 保护
+		sameSite: 'lax', // 使用 lax 策略，允许第三方网站访问(Get请求) cookie
+		maxAge: 60 * 60 * 24 * 7 // 7天
 	})
 
 	/** Set user information */
@@ -47,5 +44,16 @@ export const useUserStore = defineStore('user', () => {
 		return defaultAvatar.value
 	}
 
-	return { user, defaultAvatar, setUser, getUser, setDefaultAvatar, getDefaultAvatar }
+	/** Set token */
+	const setToken = (newToken: string) => {
+		token.value = newToken
+	}
+
+	/** Clear token */
+	const clearToken = () => {
+		token.value = ''
+		user.value = {}
+	}
+
+	return { token: readonly(token), user, defaultAvatar, setUser, getUser, setDefaultAvatar, getDefaultAvatar, setToken, clearToken }
 })

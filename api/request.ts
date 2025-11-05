@@ -25,7 +25,7 @@ async function request<T = any>(url: string, options: RequestOptions = {}) {
   }
 
   const data = await $fetch(url, {
-    baseURL: config.public.apiBase,
+    baseURL: config.public.apiBase || 'https://api-dev.g6b.xyz',
     headers,
     params: { json: params },
     body: { json: body },

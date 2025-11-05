@@ -21,22 +21,22 @@ export function useLoginPopupLogic() {
   const loginHandler = async () => {
     const style = getComputedStyle(document.documentElement)
     const safeArea = style.getPropertyValue("--sat")
-    alert(safeArea)
+    // alert(safeArea)
     try {
       const res = await loginApi({
-        username: "11999990000",
-        password: "123456",
+        username: "11999900000",
+        password: "qwe123",
       })
       console.log(res)
 
       // 登录成功后的处理逻辑
-      if (res.success) {
+      if (res.result.data.json.data.token) {
         // 设置 token
-        const { setToken } = useAuth()
-        setToken(res.data.token)
+        userStore.setToken(res.result.data.json.data.token)
 
         // 更新用户信息
         await userStore.setUser()
+        statusStore.hideLoginPopup()
       }
     }
     catch (error) {
@@ -52,7 +52,6 @@ export function useLoginPopupLogic() {
 
   /** Close login popup */
   const handleClose = () => {
-    statusStore.resetLoginPopupType()
     statusStore.hideLoginPopup()
     username.value = ""
     password.value = ""

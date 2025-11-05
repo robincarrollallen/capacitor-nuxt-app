@@ -1,5 +1,5 @@
 export const useAuth = () => {
-	const token = useCookie('token', {
+	const token: Ref<string> = useCookie('token', {
 		default: () => '',
 		secure: true,
 		sameSite: 'strict',

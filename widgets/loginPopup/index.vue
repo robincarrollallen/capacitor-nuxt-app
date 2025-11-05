@@ -55,12 +55,12 @@ const { tabs, accountType, username, password, isLogin, isAccount, isPhone, isRe
               <van-icon name="phone-o" />
             </template>
           </Input>
-          <Input v-model="password" error clearable :type="INPUT_TYPE.PASSWORD" required :placeholder="$t('label.password')">
+          <Input v-model="password" error clearable :type="INPUT_TYPE.PASSWORD" :autocomplete="isRegister ? 'new-password' : 'current-password'" required :placeholder="$t('label.password')">
             <template #prefix>
               <van-icon name="lock" />
             </template>
           </Input>
-          <Input v-if="isRegister" v-model="confirmPassword" error clearable :type="INPUT_TYPE.PASSWORD" required :placeholder="$t('label.confirmPassword')">
+          <Input v-if="isRegister" v-model="confirmPassword" error clearable :type="INPUT_TYPE.PASSWORD" autocomplete="new-password'" required :placeholder="$t('label.confirmPassword')">
             <template #prefix>
               <van-icon name="lock" />
             </template>

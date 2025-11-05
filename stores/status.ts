@@ -5,7 +5,6 @@ export const useStatusStore = defineStore("status", () => {
   const mainLeftDrawerVisible = ref(false)
   const loginPopupVisible = ref(false)
   const loginPopupType = ref(0) // 0: login, 1: register
-  const route = useRoute()
 
   /** Show main left drawer */
   const showMainLeftDrawer = () => {
@@ -18,8 +17,8 @@ export const useStatusStore = defineStore("status", () => {
   }
 
   /** Show login popup */
-  const showLoginPopup = async () => {
-    const path = route.path
+  const showLoginPopup = async (currentPath?: string) => {
+    const path = currentPath ?? useRoute().path
     if (!MAIN_PATHS.includes(path as MainPathType)) {
       await navigateTo(MAIN_PATH.HOME)
     }
@@ -32,14 +31,18 @@ export const useStatusStore = defineStore("status", () => {
     loginPopupType.value = 1
   }
 
-  /** Hide login popup */
-  const hideLoginPopup = () => {
-    loginPopupVisible.value = false
-  }
-
   /** Set login popup type */
   const resetLoginPopupType = () => {
     loginPopupType.value = 0
+  }
+
+  /** Hide login popup */
+  const hideLoginPopup = () => {
+    if (useRoute().path !== MAIN_PATH.HOME) {
+      navigateTo(MAIN_PATH.HOME)
+    }
+    loginPopupVisible.value = false
+    resetLoginPopupType()
   }
 
   /** IndexedDB configuration excluding automatic persistence  */

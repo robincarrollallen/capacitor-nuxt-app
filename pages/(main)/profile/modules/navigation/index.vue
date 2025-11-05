@@ -2,6 +2,8 @@
 import { showLanguage } from '@/widgets/languageDialog/data'
 
 const appStore = useAppStore()
+const userStore = useUserStore()
+const statusStore = useStatusStore()
 const layoutStore = useLayoutStore()
 
 const locale = computed(() => appStore.locale) // Current language Code
@@ -26,14 +28,16 @@ const handleLink = (link: Recordable) => {
 	}
 }
 
-const beforeClose = (action): Promise<boolean> => {
+const beforeClose = (action: string): Promise<boolean> => {
 	if (action === 'cancel') {
 		return Promise.resolve(true) // 取消时立即关闭
 	}
 
 	return new Promise((resolve) => {
 		setTimeout(() => {
+			userStore.clearToken()
 			resolve(action === 'confirm') // 确认时延迟处理
+			statusStore.showLoginPopup()
 		}, 1000)
 	})
 }
