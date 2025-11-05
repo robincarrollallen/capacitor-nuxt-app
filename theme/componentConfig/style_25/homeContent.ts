@@ -20,7 +20,6 @@ export const HomeContentComponent = {
           justifyContent: "space-between",
           margin: ".375rem 1.375rem .375rem 2.5rem",
           border: ".125rem solid var(--ep-color-border-default)",
-          aspectRatio: "154/29",
         },
       },
       children: [

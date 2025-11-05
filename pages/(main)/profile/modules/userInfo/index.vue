@@ -2,10 +2,11 @@
 const router = useRouter()
 const vipStore = useVipStore()
 const userStore = useUserStore()
+const tenantStore = useTenantStore()
 const { t } = useI18n()
 
-const user = computed(() => userStore.user)
 const vipLevel = computed(() => safeNumber(vipStore.vipInfo.currentVipLevel?.level))
+const user = computed(() => userStore.user) // user info
 
 // TODO: 模拟提现相关信息验证接口
 async function handleWithdraw() {
@@ -44,7 +45,7 @@ async function handleWithdraw() {
       <div class="balance-item">
         <label>Balance</label>
         <div class="balance-content">
-          <a>R$</a>
+          <a>{{ tenantStore.merchantCy }}</a>
           <AnimatedNumber :decimals="2" :value="10000" />
           <van-icon name="replay" />
         </div>

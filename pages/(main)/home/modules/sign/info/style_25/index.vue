@@ -1,39 +1,76 @@
 <script setup lang="ts">
 const props = defineProps({
-	outAvatar: {
-		type: String,
-		default: '',
-	},
+  outAvatar: {
+    type: String,
+    default: "",
+  },
 })
 
-const basicAvatar = '/svg/user-default-avatar.svg'
+const basicAvatar = "/svg/user-default-avatar.svg"
 
 const userStore = useUserStore()
+const tenantStore = useTenantStore()
 
 const userPhoto = computed(() => userStore.user?.avatar || userStore.defaultAvatar || basicAvatar)
 </script>
 
 <template>
-	<div v-if="userStore.user?.userId" class="log-in-box">
-		<van-image
-			class="account-icon"
-			:src="userPhoto"
-		/>
-	</div>
-	<div v-else-if="!isEmpty(props.outAvatar)" class="log-out-box">
-		<SvgIcon class="log-out-icon" :src="props.outAvatar"/>
-		<label>
-			Welcome
-		</label>
-	</div>
+  <div v-if="userStore.user?.userId" class="log-in-box">
+    <van-image
+      class="account-icon"
+      :src="userPhoto"
+    />
+    <div class="balance-wrap">
+      <div>
+        <Image src="@/assets/icons/assets-25.webp" class="assets-icon" />
+        <span>Balance</span>
+      </div>
+      <strong>{{ tenantStore.merchantCy }} <AnimatedNumber :decimals="2" :value="10000" /></strong>
+    </div>
+  </div>
+  <div v-else-if="!isEmpty(props.outAvatar)" class="log-out-box">
+    <SvgIcon class="log-out-icon" :src="props.outAvatar" />
+    <label>
+      Welcome
+    </label>
+  </div>
 </template>
 
 <style scoped lang="less">
 .log-in-box {
-	width: 2rem;
-	height: 2rem;
-	overflow: hidden;
-	border-radius: 50%;
+	gap: 0.5rem;
+	display: flex;
+	align-items: center;
+
+	.account-icon {
+		width: 2.5rem;
+		height: 2.5rem;
+		overflow: hidden;
+		border-radius: 50%;
+	}
+
+	.balance-wrap {
+
+		div {
+			display: flex;
+			align-items: center;
+			gap: 0.25rem;
+
+			.assets-icon {
+				width: 1.25rem;
+				height: 1.25rem;
+			}
+
+			span {
+				font-size: 0.75rem;
+			}
+		}
+
+		strong {
+			font-size: 0.875rem;
+			color: var(--ep-color-text-warning);
+		}
+	}
 }
 
 .log-out-box {
