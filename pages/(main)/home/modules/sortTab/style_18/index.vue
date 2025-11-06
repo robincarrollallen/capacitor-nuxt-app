@@ -1,26 +1,25 @@
 <script setup lang="ts">
-import { useSortTabLogic } from '../logic'
-import GameWarp from '@/widgets/gameWrap/style_18/index.vue'
+import { useSortTabLogic } from "../logic"
+import GameWarp from "@/widgets/gameWrap/style_18/index.vue"
 
 const { active, homeHotList, homePlatformList, tabsOffsetTop, getGameListByPlatform } = useSortTabLogic()
-
 </script>
 
 <template>
-	<van-tabs class="segment-tabs" v-model:active="active" scrollspy sticky :offset-top="tabsOffsetTop">
-		<van-tab class="segment-pane" v-for="platform of homePlatformList" :key="platform.id">
-			<template #title>
-				<div class="segment-tab">
-					<SvgIcon class="segment-tab-icon" :url="platform.logo" />
-					<div>{{ platform.name }}</div>
-				</div>
-			</template>
-			<div class="segment-pane-wrap">
-				<GameWarp :platform="platform" :list="homeHotList" v-if="platform.id === 0"/>
-				<GameWarp :platform="platform" :list="getGameListByPlatform(platform.id)" v-else/>
-			</div>
-		</van-tab>
-	</van-tabs>
+  <van-tabs v-model:active="active" class="segment-tabs" scrollspy sticky :offset-top="tabsOffsetTop">
+    <van-tab v-for="platform of homePlatformList" :key="platform.id" class="segment-pane">
+      <template #title>
+        <div class="segment-tab">
+          <Icon class="segment-tab-icon" :src="platform.logo" />
+          <div>{{ platform.name }}</div>
+        </div>
+      </template>
+      <div class="segment-pane-wrap">
+        <GameWarp v-if="platform.id === 0" :platform="platform" :list="homeHotList" />
+        <GameWarp v-else :platform="platform" :list="getGameListByPlatform(platform.id)" />
+      </div>
+    </van-tab>
+  </van-tabs>
 </template>
 
 <style scoped lang="less">

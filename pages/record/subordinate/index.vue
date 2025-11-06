@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Select } from "@/components/Select"
-import { useSubordinateLevels } from "@/hooks/options"
+import { useSubordinateLevels } from "~/composables/options"
 
 defineOptions({
   name: "SubordinatePage",
@@ -39,7 +39,7 @@ function onConfirm(value: Date) {
           <div class="select-button">
             <span class="calendar-text">{{ $t('activity.selectDate') }}</span>
             <span>{{ date.toLocaleDateString() }}</span>
-            <SvgIcon class="calendar-icon" url="@/assets/svg/calendar.svg" />
+            <Icon class="calendar-icon" src="@/assets/svg/calendar.svg" />
           </div>
         </CalendarPicker>
       </div>

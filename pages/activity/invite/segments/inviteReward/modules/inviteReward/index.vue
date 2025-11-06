@@ -11,7 +11,7 @@ const inviteInfo = computed(() => agentStore.inviteInfo) // 邀请信息
 
 <template>
   <div class="invite-wrap">
-    <SvgIcon class="invite-tip" url="@/assets/svg/hint.svg" @click="router.push('/mlmAgent/inviteRule/commission')" />
+    <Icon class="invite-tip" src="@/assets/svg/hint.svg" @click="router.push('/mlmAgent/inviteRule/commission')" />
     <div class="title-img" />
     <div class="invite-title-warp">
       <div class="invite-title">

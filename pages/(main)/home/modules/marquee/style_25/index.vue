@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { useMarqueeLogic } from '../logic'
+import { useMarqueeLogic } from "../logic"
 
 const props = defineProps({
-	icons: {
-		type: Array as PropType<string[]>,
-		default: () => [new URL('@/assets/icons/broadcast-25.png', import.meta.url).href, '@/assets/svg/magnifier-25.svg'],
-	},
+  icons: {
+    type: Array as PropType<string[]>,
+    default: () => [new URL("@/assets/icons/broadcast-25.png", import.meta.url).href, "@/assets/svg/magnifier-25.svg"],
+  },
 })
 
 const { marqueeList } = useMarqueeLogic()
 </script>
 
 <template>
-	<div class="marquee-wrap">
-		<div class="marquee-view">
-			<SvgIcon :src="props.icons[0]" class="broadcast-icon" />
-			<Marquee class="marquee-content" :content="marqueeList" />
-		</div>
-		<SvgIcon :src="props.icons[1]" class="message-icon" />
-	</div>
+  <div class="marquee-wrap">
+    <div class="marquee-view">
+      <Icon :src="props.icons[0]" class="broadcast-icon" />
+      <Marquee class="marquee-content" :content="marqueeList" />
+    </div>
+    <Icon :src="props.icons[1]" class="message-icon" />
+  </div>
 </template>
 
 <style lang="less" scoped>

@@ -3,17 +3,17 @@ const tenantStore = useTenantStore()
 </script>
 
 <template>
-	<section>
-		<div class="support-item">
-			<SvgIcon class="support-icon" url="@/assets/svg/support.svg" />
-			<span class="support-text">{{ $t('main.suporte') }}</span>
-		</div>
-		<div class="media-list">
-			<div v-for="media in tenantStore.mainMediaList" :key="media.id" class="media-item">
-				<van-image :src="media.icon" class="media-icon" fit="cover" :show-loading="false" />
-			</div>
-		</div>
-	</section>
+  <section>
+    <div class="support-item">
+      <Icon class="support-icon" src="@/assets/svg/support.svg" />
+      <span class="support-text">{{ $t('main.suporte') }}</span>
+    </div>
+    <div class="media-list">
+      <div v-for="media in tenantStore.mainMediaList" :key="media.id" class="media-item">
+        <van-image :src="media.icon" class="media-icon" fit="cover" :show-loading="false" />
+      </div>
+    </div>
+  </section>
 </template>
 
 <style scoped lang="less">

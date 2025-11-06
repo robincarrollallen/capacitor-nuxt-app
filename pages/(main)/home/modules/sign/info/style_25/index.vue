@@ -22,14 +22,14 @@ const userPhoto = computed(() => userStore.user?.avatar || userStore.defaultAvat
     />
     <div class="balance-wrap">
       <div>
-        <Image src="@/assets/icons/assets-25.webp" class="assets-icon" />
+        <Icon src="@/assets/icons/assets-25.webp" class="assets-icon" />
         <span>Balance</span>
       </div>
       <strong>{{ tenantStore.merchantCy }} <AnimatedNumber :decimals="2" :value="10000" /></strong>
     </div>
   </div>
   <div v-else-if="!isEmpty(props.outAvatar)" class="log-out-box">
-    <SvgIcon class="log-out-icon" :src="props.outAvatar" />
+    <Icon class="log-out-icon" :src="props.outAvatar" />
     <label>
       Welcome
     </label>

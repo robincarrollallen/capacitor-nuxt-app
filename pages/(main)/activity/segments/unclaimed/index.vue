@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDays } from "@/hooks/options"
+import { useDays } from "~/composables/options"
 import activityRecordHistory from "@/public/data/activityRecordHistory.json"
 
 const dayList = useDays()

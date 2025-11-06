@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { useMarqueeLogic } from '../logic'
+import { useMarqueeLogic } from "../logic"
 
 const { marqueeList } = useMarqueeLogic()
 </script>
 
 <template>
-	<div class="marquee-view">
-		<SvgIcon url="@/assets/svg/broadcast.svg" class="broadcast-icon" />
-		<Marquee class="marquee-content" :content="marqueeList" />
-		<SvgIcon url="@/assets/svg/message.svg" class="message-icon" />
-	</div>
+  <div class="marquee-view">
+    <Icon src="@/assets/svg/broadcast.svg" class="broadcast-icon" />
+    <Marquee class="marquee-content" :content="marqueeList" />
+    <Icon src="@/assets/svg/message.svg" class="message-icon" />
+  </div>
 </template>
 
 <style lang="less" scoped>

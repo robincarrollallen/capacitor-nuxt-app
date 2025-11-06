@@ -14,9 +14,9 @@ const vipLevel = computed(() => safeNumber(props.level) + 1)
 
 <template>
   <article class="vip__tag">
-    <Image :src="`@/assets/icons/vip/vip${vipLevel}.webp`" />
+    <Icon :src="`@/assets/icons/vip/vip${vipLevel}.webp`" />
     <label>VIP <span>{{ props.level }}</span></label>
-    <SvgIcon :src="`@/assets/svg/vip/vipTextSvg${vipLevel}.svg`" />
+    <Icon :src="`@/assets/svg/vip/vipTextSvg${vipLevel}.svg`" />
   </article>
 </template>
 
@@ -31,7 +31,7 @@ article {
 	position: relative;
 	align-items: center;
 
-	.__image {
+	img.__icon {
 		width: auto;
 		height: 100%;
 		aspect-ratio: 1/1;
@@ -41,7 +41,7 @@ article {
 		font-weight: 700;
 	}
 
-	.svg__icon {
+	i.__icon {
 		left: 25%;
 		height: 65%;
 		z-index: -1;

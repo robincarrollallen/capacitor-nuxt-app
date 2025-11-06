@@ -61,7 +61,7 @@ async function handleStepClick(amount: number) {
 
 <template>
   <div class="get-reward-wrap">
-    <SvgIcon class="get-reward-tip" src="@/assets/svg/hint.svg" @click="router.push('/mlmAgent/inviteRule/reward')" />
+    <Icon class="get-reward-tip" src="@/assets/svg/hint.svg" @click="router.push('/mlmAgent/inviteRule/reward')" />
     <div class="get-reward-explain-warp">
       <div class="get-reward-title">
         {{ $t('splice.inviteFriendsNum', { num: maxInviteCount }) }}
@@ -80,7 +80,7 @@ async function handleStepClick(amount: number) {
             <div v-else class="get-reward-steps-circle-inner" />
           </div>
           <div class="get-reward-steps-progress">
-            <SvgIcon url="@/assets/svg/team.svg" />
+            <Icon src="@/assets/svg/team.svg" />
             <div>
               <span>{{ rewardCount >= step.requiredCount ? step.requiredCount : rewardCount }}</span>
               <span class="get-reward-steps-progress-total">{{ `/${step.requiredCount}` }}</span>

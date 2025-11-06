@@ -19,7 +19,7 @@ const { hasPrev, hasNext, showAll, swiperRef, currentSlide, swiperHandler, gameC
 <template>
   <div class="segment-pane-item">
     <header class="segment-pane-header">
-      <SvgIcon class="segment-pane-header-icon" :url="props.platform.logo" />
+      <Icon class="segment-pane-header-icon" :src="props.platform.logo" />
       <div class="segment-pane-header-title">
         {{ props.platform.name }}
       </div>
@@ -33,8 +33,8 @@ const { hasPrev, hasNext, showAll, swiperRef, currentSlide, swiperHandler, gameC
         </div>
       </div>
       <div class="segment-pane-header-more">
-        <SvgIcon class="segment-pane-header-more-icon" :class="{ disabled: !hasPrev }" url="@/assets/svg/arrow-left.svg" @click="swiperHandler.slidePrev()" />
-        <SvgIcon class="segment-pane-header-more-icon" :class="{ disabled: !hasNext }" url="@/assets/svg/arrow-right.svg" @click="swiperHandler.slideNext()" />
+        <Icon class="segment-pane-header-more-icon" :class="{ disabled: !hasPrev }" src="@/assets/svg/arrow-left.svg" @click="swiperHandler.slidePrev()" />
+        <Icon class="segment-pane-header-more-icon" :class="{ disabled: !hasNext }" src="@/assets/svg/arrow-right.svg" @click="swiperHandler.slideNext()" />
       </div>
     </header>
     <Swiper

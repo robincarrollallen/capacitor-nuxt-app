@@ -19,7 +19,7 @@ const { showPopover, langList, fontSize, locale, changeLanguage } = useNavBarLan
       </div>
     </div>
     <template #reference>
-      <SvgIcon :src="props.icon" class="earth-svg" v-bind="$attrs" />
+      <Icon :src="props.icon" class="earth-svg" v-bind="$attrs" />
     </template>
   </van-popover>
 </template>

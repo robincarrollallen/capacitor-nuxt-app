@@ -1,60 +1,66 @@
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { useGameWarpLogic } from '../logic'
+import { Swiper, SwiperSlide } from "swiper/vue"
+import { useGameWarpLogic } from "../logic"
 
 const props = defineProps({
-	platform: {
-		type: Object as PropType<Recordable>,
-		default: () => ({})
-	},
-	list: {
-		type: Array as PropType<Recordable[]>,
-		default: () => []
-	},
+  platform: {
+    type: Object as PropType<Recordable>,
+    default: () => ({}),
+  },
+  list: {
+    type: Array as PropType<Recordable[]>,
+    default: () => [],
+  },
 })
 
 const { hasPrev, hasNext, showAll, swiperRef, currentSlide, swiperHandler, gameCardPagination, collapseIconColor, onSwiper, onSlideChange } = useGameWarpLogic(props)
 </script>
 
 <template>
-	<div class="segment-pane-item">
-		<header class="segment-pane-header">
-			<i class="segment-pane-header-icon" :style="props.platform.platformIconStyle" />
-			<div class="segment-pane-header-title">{{ props.platform.name }}</div>
-			<div class="segment-pane-header-line"></div>
-			<div class="segment-pane-header-count">
-				<div class="segment-pane-header-count-num">{{ list.length }}</div>
-				<div class="segment-pane-header-count-text">All</div>
-			</div>
-			<div class="segment-pane-header-more">
-				<SvgIcon class="segment-pane-header-more-icon" :class="{ 'disabled': !hasPrev }" url="@/assets/svg/arrow-left.svg" @click="swiperHandler.slidePrev()" />
-				<SvgIcon class="segment-pane-header-more-icon" :class="{ 'disabled': !hasNext }" url="@/assets/svg/arrow-right.svg" @click="swiperHandler.slideNext()" />
-			</div>
-		</header>
-		<Swiper
-			ref="swiperRef"
-			:slides-per-view="1"
-			:slides-per-group="1"
-			:initial-slide="0"
-			@swiper="onSwiper"
-			@slideChange="onSlideChange"
-		>
-			<SwiperSlide v-for="(item, index) of gameCardPagination.pages" :key="index">
-				<div class="game-wrap">
-					<van-image class="game-card" lazy-load v-for="game of item" :key="game.id" :src="game.logoFlag ? `https://game-logo.d-e-7-f.com/pre/style2/en/${game.logoFlag}.jpg` : game.background" />
-				</div>
-			</SwiperSlide>
-		</Swiper>
-		<footer class="segment-pane-footer">
-			<div class="segment-pane-footer-count">
-				{{ `Displaying ${gameCardPagination.pages[currentSlide]?.length} of ${list.length} Games` }}
-			</div>
-			<div class="segment-pane-footer-collapse" @click="showAll = !showAll">
-				{{ showAll ? 'Collapse' : 'Display All' }}
-				<van-icon class="segment-pane-footer-collapse-icon" :color="collapseIconColor" :name="showAll ? 'arrow-up' : 'arrow-down'" />
-			</div>
-		</footer>
-	</div>
+  <div class="segment-pane-item">
+    <header class="segment-pane-header">
+      <i class="segment-pane-header-icon" :style="props.platform.platformIconStyle" />
+      <div class="segment-pane-header-title">
+        {{ props.platform.name }}
+      </div>
+      <div class="segment-pane-header-line" />
+      <div class="segment-pane-header-count">
+        <div class="segment-pane-header-count-num">
+          {{ list.length }}
+        </div>
+        <div class="segment-pane-header-count-text">
+          All
+        </div>
+      </div>
+      <div class="segment-pane-header-more">
+        <Icon class="segment-pane-header-more-icon" :class="{ disabled: !hasPrev }" src="@/assets/svg/arrow-left.svg" @click="swiperHandler.slidePrev()" />
+        <Icon class="segment-pane-header-more-icon" :class="{ disabled: !hasNext }" src="@/assets/svg/arrow-right.svg" @click="swiperHandler.slideNext()" />
+      </div>
+    </header>
+    <Swiper
+      ref="swiperRef"
+      :slides-per-view="1"
+      :slides-per-group="1"
+      :initial-slide="0"
+      @swiper="onSwiper"
+      @slide-change="onSlideChange"
+    >
+      <SwiperSlide v-for="(item, index) of gameCardPagination.pages" :key="index">
+        <div class="game-wrap">
+          <van-image v-for="game of item" :key="game.id" class="game-card" lazy-load :src="game.logoFlag ? `https://game-logo.d-e-7-f.com/pre/style2/en/${game.logoFlag}.jpg` : game.background" />
+        </div>
+      </SwiperSlide>
+    </Swiper>
+    <footer class="segment-pane-footer">
+      <div class="segment-pane-footer-count">
+        {{ `Displaying ${gameCardPagination.pages[currentSlide]?.length} of ${list.length} Games` }}
+      </div>
+      <div class="segment-pane-footer-collapse" @click="showAll = !showAll">
+        {{ showAll ? 'Collapse' : 'Display All' }}
+        <van-icon class="segment-pane-footer-collapse-icon" :color="collapseIconColor" :name="showAll ? 'arrow-up' : 'arrow-down'" />
+      </div>
+    </footer>
+  </div>
 </template>
 
 <style scoped lang="less">

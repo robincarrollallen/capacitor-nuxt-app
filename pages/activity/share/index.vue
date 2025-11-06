@@ -1,55 +1,65 @@
 <script setup lang="ts">
 defineOptions({
-	name: 'SharePage'
+  name: "SharePage",
 })
 
 const agentStore = useAgentStore()
 
-const onShareTabClick = ({ title }) => showToast(title)
+const onShareTabClick = ({ title }: { title: string }) => showToast(title)
 </script>
 
 <template>
-	<div class="share-page">
-		<ClientOnly>
-			<NavigateBar title="Invite" left-arrow/>
-			<main class="main-container">
-				<div class="share-card">
-					<div class="share-url-warp">
-						<div class="url-title">Invite link:</div>
-						<div class="url-link">https://tg3-gray.7-v-s-8.com/?pid=575718350</div>
-						<SvgIcon url="@/assets/svg/copy.svg" class="copy-icon" @click="copy('https://tg3-gray.7-v-s-8.com/?pid=575718350')"/>
-					</div>
-					<div class="quick-share-warp">
-						<div class="share-title">Quick share</div>
-						<van-tabs class="share-tabs" @click-tab="onShareTabClick">
-							<van-tab v-for="item in agentStore.shareConfig?.software" :key="item.name">
-								<template #title><SvgIcon class="share-icon" :url="`@/assets/svg/share/${item.name.toLocaleLowerCase()}.svg`" /></template>
-							</van-tab>
-						</van-tabs>
-					</div>
-					<div class="details-warp">
+  <div class="share-page">
+    <ClientOnly>
+      <NavigateBar title="Invite" left-arrow />
+      <main class="main-container">
+        <div class="share-card">
+          <div class="share-url-warp">
+            <div class="url-title">
+              Invite link:
+            </div>
+            <div class="url-link">
+              https://tg3-gray.7-v-s-8.com/?pid=575718350
+            </div>
+            <Icon src="@/assets/svg/copy.svg" class="copy-icon" @click="copy('https://tg3-gray.7-v-s-8.com/?pid=575718350')" />
+          </div>
+          <div class="quick-share-warp">
+            <div class="share-title">
+              Quick share
+            </div>
+            <van-tabs class="share-tabs" @click-tab="onShareTabClick">
+              <van-tab v-for="item in agentStore.shareConfig?.software" :key="item.name">
+                <template #title>
+                  <Icon class="share-icon" :src="`@/assets/svg/share/${item.name.toLocaleLowerCase()}.svg`" />
+                </template>
+              </van-tab>
+            </van-tabs>
+          </div>
+          <div class="details-warp">
             <div class="details-content">
               <div class="bet-register-count">
                 My direct subordinates
                 <span class="count-text">{{ `${0} ${$t('Person')}` }}</span>
                 {{ `(${$t('Valid')}` }}
-                <span class="valid-text">{{  `${0} ${$t('Person')})` }}</span>
+                <span class="valid-text">{{ `${0} ${$t('Person')})` }}</span>
               </div>
-              <div class="details-btn"> {{ `${$t('Details')} >` }}</div>
+              <div class="details-btn">
+                {{ `${$t('Details')} >` }}
+              </div>
             </div>
           </div>
-				</div>
-				<van-progress
-					stroke-width=".5rem"
-					:percentage="75"
-					pivot-text="紫色"
-					pivot-color="#7232dd"
-					:show-pivot="false"
-					color="linear-gradient(to right, #be99ff, #7232dd)"
-				/>
-			</main>
-		</ClientOnly>
-	</div>
+        </div>
+        <van-progress
+          stroke-width=".5rem"
+          :percentage="75"
+          pivot-text="紫色"
+          pivot-color="#7232dd"
+          :show-pivot="false"
+          color="linear-gradient(to right, #be99ff, #7232dd)"
+        />
+      </main>
+    </ClientOnly>
+  </div>
 </template>
 
 <style lang="less" scoped>
@@ -87,7 +97,8 @@ const onShareTabClick = ({ title }) => showToast(title)
 				}
 
 				.copy-icon {
-					transform: scale(.9);
+					width: 1rem;
+					height: 1rem;
 				}
 			}
 

@@ -1,5 +1,7 @@
 /** Regular expressions */
 export const REGULAR = {
-	account: /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z][a-zA-Z0-9]{7,15}$/,
-	password: /^(?!.*\s).{6,16}$/
+  account: /^(?=.*[a-z])(?=.*\d)[a-z][a-z0-9]{7,15}$/i,
+  password: /^(?!.*\s).{6,16}$/,
 }
+
+export type RegularSupport = keyof typeof REGULAR

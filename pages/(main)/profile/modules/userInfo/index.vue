@@ -22,7 +22,7 @@ async function handleWithdraw() {
 <template>
   <header>
     <!-- Background -->
-    <Image src="@/assets/images/profile/yellow-dark-top-bg.webp" />
+    <Icon src="@/assets/images/profile/yellow-dark-top-bg.webp" />
     <!-- User Info -->
     <div class="user-info">
       <van-image
@@ -36,7 +36,7 @@ async function handleWithdraw() {
         </div>
         <div class="id">
           <label>ID: {{ user.userId }}</label>
-          <SvgIcon src="@/assets/svg/copy.svg" size="1rem" @click="copy(user.userId)" />
+          <Icon src="@/assets/svg/copy.svg" size="1rem" @click="copy(user.userId)" />
         </div>
       </div>
     </div>
@@ -58,11 +58,11 @@ async function handleWithdraw() {
     <!-- Assets Handle -->
     <div class="assets-handle">
       <Button>
-        <SvgIcon src="@/assets/svg/pig.svg" />
+        <Icon src="@/assets/svg/pig.svg" />
         <span>Deposit</span>
       </Button>
       <Button @click="handleWithdraw">
-        <SvgIcon src="@/assets/svg/wallet.svg" />
+        <Icon src="@/assets/svg/wallet.svg" />
         <span>Withdraw</span>
       </Button>
     </div>
@@ -74,7 +74,7 @@ header {
 	padding: 2rem .75rem 1rem;
 	position: relative;
 
-	> .__image {
+	> .__icon {
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -119,7 +119,7 @@ header {
 					color: var(--ep-color-text-weaker);
 				}
 
-				.svg__icon {
+				.__icon {
 					width: .875rem;
 					color: var(--ep-color-icon-brand-primary);
 					cursor: pointer;

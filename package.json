@@ -28,6 +28,7 @@
     "@vant/nuxt": "^1.0.7",
     "clipboard-polyfill": "^4.1.1",
     "dayjs": "^1.11.18",
+    "dompurify": "^3.3.0",
     "nuxt": "^3.19.3",
     "pinia": "^3.0.3",
     "swiper": "^12.0.2",

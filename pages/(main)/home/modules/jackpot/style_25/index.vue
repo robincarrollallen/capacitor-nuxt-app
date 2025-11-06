@@ -28,7 +28,7 @@ onUnmounted(() => {
 
 <template>
   <div v-if="tenantInfo?.switch" class="bonus" @click="bonusClick">
-    <SvgIcon class="bonus-img" :src="props.icon" />
+    <Icon class="bonus-img" :src="props.icon" />
     <div class="bonus-content">
       <label class="bonus-title">
         Jack Pots

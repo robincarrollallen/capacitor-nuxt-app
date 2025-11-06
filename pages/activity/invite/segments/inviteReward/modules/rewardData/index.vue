@@ -34,7 +34,7 @@ const totalReward = computed(() => {
     <div class="reward-item" @click="router.push('/mlmAgent/subordinate')">
       <div class="reward-content">
         <div class="reward-amount">
-          <SvgIcon url="@/assets/svg/team.svg" />{{ agentStore.myAgentInfo?.histDirectCnt + agentStore.myAgentInfo?.histTeamCnt }}
+          <Icon src="@/assets/svg/team.svg" />{{ agentStore.myAgentInfo?.histDirectCnt + agentStore.myAgentInfo?.histTeamCnt }}
         </div>
       </div>
       <div class="reward-title">

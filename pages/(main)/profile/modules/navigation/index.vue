@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showLanguage } from '@/widgets/languageDialog/data'
+import { showLanguage } from "@/widgets/languageDialog/data"
 
 const appStore = useAppStore()
 const userStore = useUserStore()
@@ -9,73 +9,74 @@ const layoutStore = useLayoutStore()
 const locale = computed(() => appStore.locale) // Current language Code
 
 const links = [
-	{ title: 'Report', icon: '@/assets/svg/profile/report.svg', link: '', },
-	{ title: 'Invite', icon: '@/assets/svg/profile/invite.svg', link: '', },
-	{ title: 'Redeem', icon: '@/assets/svg/profile/redeem.svg', link: '', },
-	{ title: 'Security Center', icon: '@/assets/svg/profile/security.svg', link: '', },
-	{ title: 'Language', icon: '@/assets/svg/profile/language.svg', link: '', },
-	{ title: 'Logout', icon: '@/assets/svg/profile/logout.svg', link: '', },
+  { title: "Report", icon: "@/assets/svg/profile/report.svg", link: "" },
+  { title: "Invite", icon: "@/assets/svg/profile/invite.svg", link: "" },
+  { title: "Redeem", icon: "@/assets/svg/profile/redeem.svg", link: "" },
+  { title: "Security Center", icon: "@/assets/svg/profile/security.svg", link: "" },
+  { title: "Language", icon: "@/assets/svg/profile/language.svg", link: "" },
+  { title: "Logout", icon: "@/assets/svg/profile/logout.svg", link: "" },
 ]
 
 const tabBarHeight = computed(() => layoutStore.tabBarHeight)
 const currentLanguage = computed(() => getLanguageName(locale.value, locale.value))
 
-const handleLink = (link: Recordable) => {
-	if (link.title === 'Language') {
-		showLanguage.value = true
-	} else if (link.title === 'Logout') {
-		handleLogout()
-	}
+function handleLink(link: Recordable) {
+  if (link.title === "Language") {
+    showLanguage.value = true
+  }
+  else if (link.title === "Logout") {
+    handleLogout()
+  }
 }
 
-const beforeClose = (action: string): Promise<boolean> => {
-	if (action === 'cancel') {
-		return Promise.resolve(true) // 取消时立即关闭
-	}
+function beforeClose(action: string): Promise<boolean> {
+  if (action === "cancel") {
+    return Promise.resolve(true) // 取消时立即关闭
+  }
 
-	return new Promise((resolve) => {
-		setTimeout(() => {
-			userStore.clearToken()
-			resolve(action === 'confirm') // 确认时延迟处理
-			statusStore.showLoginPopup()
-		}, 1000)
-	})
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      userStore.clearToken()
+      resolve(action === "confirm") // 确认时延迟处理
+      statusStore.showLoginPopup()
+    }, 1000)
+  })
 }
 
-const handleLogout = () => {
-	showConfirmDialog({
-		title: 'Sign out',
-		className: 'logout-dialog',
-		message: 'Are you sure you want to log out?',
-		beforeClose,
-	})
+function handleLogout() {
+  showConfirmDialog({
+    title: "Sign out",
+    className: "logout-dialog",
+    message: "Are you sure you want to log out?",
+    beforeClose,
+  })
 }
 </script>
 
 <template>
-	<section>
-		<Navigation title="Support">
-			<template #prefix>
-				<SvgIcon class="support-icon" src="@/assets/svg/customer-service.svg" />
-			</template>
-		</Navigation>
-		<footer>
-			<Navigation arrow :title="link.title" v-for="link in links" :key="link.title" @click="handleLink(link)">
-				<template #prefix>
-					<SvgIcon class="link-icon" :src="link.icon" />
-				</template>
-				<template #content v-if="link.title === 'Language'">
-					<div class="language-item">
-						<Flag :iso="locale?.split('-')[1]" class="flag-icon" />
-						<span class="language-item-name">
-							{{ currentLanguage }}
-						</span>
-					</div>
-				</template>
-			</Navigation>
-			<article :style="{ height: `${tabBarHeight}px` }"></article>
-		</footer>
-	</section>
+  <section>
+    <Navigation title="Support">
+      <template #prefix>
+        <Icon class="support-icon" src="@/assets/svg/customer-service.svg" />
+      </template>
+    </Navigation>
+    <footer>
+      <Navigation v-for="link in links" :key="link.title" arrow :title="link.title" @click="handleLink(link)">
+        <template #prefix>
+          <Icon class="link-icon" :src="link.icon" />
+        </template>
+        <template v-if="link.title === 'Language'" #content>
+          <div class="language-item">
+            <Flag :iso="locale?.split('-')[1]" class="flag-icon" />
+            <span class="language-item-name">
+              {{ currentLanguage }}
+            </span>
+          </div>
+        </template>
+      </Navigation>
+      <article :style="{ height: `${tabBarHeight}px` }" />
+    </footer>
+  </section>
 </template>
 
 <style scoped lang="less">

@@ -35,7 +35,7 @@ const url = computed(() => location.host)
         </b>
         <div class="step-content">
           <p>{{ $t('guide.tapOn') }}</p>
-          <SvgIcon url="@/assets/svg/ios_share.svg" />
+          <Icon src="@/assets/svg/ios_share.svg" />
           <p>{{ $t('guide.inTheBrowserMenu') }}</p>
         </div>
       </div>

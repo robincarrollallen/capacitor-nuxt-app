@@ -28,7 +28,7 @@ const rewardMode = computed(() => {
     <ClientOnly>
       <NavigateBar :title="$t('agent.center')" left-arrow>
         <template #right>
-          <SvgIcon url="@/assets/svg/record.svg" class="agent-nav-record" />
+          <Icon src="@/assets/svg/record.svg" class="agent-nav-record" />
         </template>
       </NavigateBar>
       <div class="agent-poster">
