@@ -16,7 +16,7 @@ const userPhoto = computed(() => userStore.user?.avatar || userStore.defaultAvat
 
 <template>
   <div v-if="userStore.user?.userId" class="log-in-box">
-    <van-image
+    <Icon
       class="account-icon"
       :src="userPhoto"
     />

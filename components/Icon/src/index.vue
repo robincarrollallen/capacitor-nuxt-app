@@ -15,11 +15,13 @@ const props = withDefaults(defineProps<Props>(), {
 
 const { observe, unobserve } = useLazyObserver() // 懒加载观察器
 
+const isError = ref(false) // 是否加载失败
 const svgContent = ref("") // 存储 SVG 内容
 const isVisible = ref(false) // 是否可见
 const imageUrl = ref(props.src) // 存储图片 URL
 const iconRef = ref<HTMLElement | null>(null) // 存储图标元素
 const imageType = ref<ImageType | undefined>(undefined) // 图片类型
+const isLoaded = ref(false) // 是否加载完成
 
 /** Check image type */
 function checkImageType(src: string) {
@@ -80,12 +82,13 @@ async function loadRemote(src: string) {
     if (imageType.value === IMAGE_TYPE.SVG) {
       const content = await response.text()
       // ✅ 使用 DOMPurify 清理
-      return DOMPurify.sanitize(content, {
+      svgContent.value = DOMPurify.sanitize(content, {
         USE_PROFILES: { svg: true, svgFilters: true },
         ADD_TAGS: SVG_TAGS, // 允许额外的标签
         ADD_ATTR: SVG_ATTRS, // 允许额外的属性
       })
     }
+    isVisible.value = true
   }
   catch (error) {
     console.error(`Failed to load remote SVG: ${src}`, error)
@@ -99,7 +102,7 @@ async function loadRemote(src: string) {
 async function loadLocal(src: string) {
   imageType.value = checkImageType(src)
 
-  return imageUrl.value = await getOrSetSvgCacheAsync(src, async () => {
+  imageUrl.value = svgContent.value = await getOrSetSvgCacheAsync(src, async () => {
     if (IMAGE_TYPE_VALUES.includes(imageType.value)) {
       try {
         const pathParts = processPath(src)
@@ -110,6 +113,11 @@ async function loadLocal(src: string) {
       }
     }
   })
+
+  if (!imageUrl.value) {
+    isError.value = true
+  }
+  isVisible.value = true
 }
 
 /** Load SVG */
@@ -119,10 +127,10 @@ async function loadSvg() {
     const isLocal = props.src.startsWith("~/") || props.src.startsWith("@/")
 
     if (isRemote) {
-      svgContent.value = await loadRemote(props.src)
+      loadRemote(props.src)
     }
     else if (isLocal) {
-      svgContent.value = await loadLocal(props.src)
+      loadLocal(props.src)
     }
     else {
       console.warn("SvgIcon: Invalid src format. Expected remote src or local path starting with ~/ or @/")
@@ -131,6 +139,16 @@ async function loadSvg() {
   catch (error) {
     console.error("Failed to load SVG:", error)
   }
+}
+
+/** Handle image load */
+function handleLoad() {
+  isLoaded.value = true
+}
+
+/** Handle image error */
+function handleError() {
+  isError.value = true
 }
 
 onMounted(async () => {
@@ -143,7 +161,6 @@ onMounted(async () => {
   }
 
   observe(iconRef.value, () => {
-    isVisible.value = true
     loadSvg()
   })
 })
@@ -156,8 +173,13 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <em
+    v-if="!isVisible || isError"
+    ref="iconRef"
+    class="__icon"
+  />
   <i
-    v-if="imageType === IMAGE_TYPE.SVG"
+    v-else-if="imageType === IMAGE_TYPE.SVG"
     ref="iconRef"
     class="__icon"
     v-html="svgContent"
@@ -165,15 +187,44 @@ onUnmounted(() => {
   <img
     v-else
     ref="iconRef"
-    :src="imageUrl"
     class="__icon"
+    :src="imageUrl"
+    :class="{ loaded: isLoaded }"
+    @load="handleLoad"
+    @error="handleError"
   >
 </template>
 
-<style scoped>
+<style lang="less" scoped>
 .__icon {
   display: inline-block;
   vertical-align: middle;
+}
+
+em.__icon {
+  background: var(--ep-color-background-fill-active-disabled);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    background-image: url("@/assets/icons/heart.png");
+    background-size: 100% 100%;
+  }
+}
+
+img.__icon {
+  opacity: 0;
+
+  &.loaded {
+    opacity: 1;
+  }
 }
 
 :global(.__icon svg) {
