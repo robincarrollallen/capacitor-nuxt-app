@@ -17,11 +17,11 @@ const { observe, unobserve } = useLazyObserver() // 懒加载观察器
 
 const isError = ref(false) // 是否加载失败
 const svgContent = ref("") // 存储 SVG 内容
+const isLoaded = ref(false) // 是否加载完成
 const isVisible = ref(false) // 是否可见
 const imageUrl = ref(props.src) // 存储图片 URL
 const iconRef = ref<HTMLElement | null>(null) // 存储图标元素
 const imageType = ref<ImageType | undefined>(undefined) // 图片类型
-const isLoaded = ref(false) // 是否加载完成
 
 /** Check image type */
 function checkImageType(src: string) {

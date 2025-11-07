@@ -25,9 +25,8 @@ async function handleWithdraw() {
     <Icon src="@/assets/images/profile/yellow-dark-top-bg.webp" />
     <!-- User Info -->
     <div class="user-info">
-      <van-image
+      <Icon
         src="https://upload-dev.b83.xyz/avatar/first_male_1.jpg"
-        radius="50%"
       />
       <div class="account-info">
         <div class="name">
@@ -88,9 +87,10 @@ header {
 		display: flex;
 		align-items: center;
 
-		.van-image {
+		img {
 			width: 3.25rem;
 			height: 3.25rem;
+			border-radius: 50%;
 		}
 
 		.account-info {
