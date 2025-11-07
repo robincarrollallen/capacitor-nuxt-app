@@ -8,6 +8,7 @@ defineOptions({
 // Use main layout
 definePageMeta({
   layout: "main",
+  ssr: false,
   auto: false,
 })
 
