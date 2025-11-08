@@ -8,15 +8,12 @@ export default defineNuxtConfig({
 
   nitro: {
     output: { publicDir: "dist" },
+    static: true,
+    routes: [],
     prerender: {
       crawlLinks: false,
       failOnError: false,
     },
-  },
-
-  routeRules: {
-    "/": { prerender: true },
-    "/**": { prerender: false },
   },
 
   spaLoadingTemplate: false,
@@ -67,6 +64,8 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: "/",
+    buildAssetsDir: "/_nuxt/",
     head: {
       meta: [
         {
