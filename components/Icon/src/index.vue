@@ -133,7 +133,7 @@ async function loadSvg() {
       loadLocal(props.src)
     }
     else {
-      console.warn("SvgIcon: Invalid src format. Expected remote src or local path starting with ~/ or @/")
+      console.warn("Icon: Invalid src format. Expected remote src or local path starting with ~/ or @/", props.src)
     }
   }
   catch (error) {
