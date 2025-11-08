@@ -46,6 +46,9 @@ jobs:
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: nuxt
       - name: Static HTML export with Nuxt
+        env:
+          NUXT_SSR: false
+          NODE_ENV: production
         run: bun run build:web
       # ✨ 验证 dist 目录
       - name: Verify dist directory
