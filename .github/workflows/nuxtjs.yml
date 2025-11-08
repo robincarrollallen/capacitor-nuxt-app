@@ -36,7 +36,9 @@ jobs:
         with:
           bun-version: latest
       - name: Install dependencies
-        run: bun install
+        run: |
+          rm -rf .nuxt dist .output node_modules/.cache
+          bun install
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:

@@ -12,7 +12,7 @@ export default defineNuxtConfig({
       routes: [],
       crawlLinks: false,
       failOnError: false,
-      ignore: ["/"],
+      ignore: ["/activity", "/"],
     },
   },
 
