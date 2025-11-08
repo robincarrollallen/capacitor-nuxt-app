@@ -9,11 +9,14 @@ export default defineNuxtConfig({
   nitro: {
     output: { publicDir: "dist" },
     prerender: {
-      routes: [],
       crawlLinks: false,
       failOnError: false,
-      ignore: ["/activity", "/"],
     },
+  },
+
+  routeRules: {
+    "/": { prerender: true },
+    "/**": { prerender: false },
   },
 
   spaLoadingTemplate: false,
