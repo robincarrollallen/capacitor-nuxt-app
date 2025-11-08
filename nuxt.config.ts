@@ -15,14 +15,10 @@ export default defineNuxtConfig({
 
   nitro: {
     output: { publicDir: "dist" },
-  },
-
-  hooks: {
-    "nitro:init": function (nitro: any) {
-      nitro.options.prerender = {
-        routes: [],
-        crawlLinks: false,
-      }
+    prerender: {
+      static: true,
+      routes: ["/"],
+      crawlLinks: false,
     },
   },
 
