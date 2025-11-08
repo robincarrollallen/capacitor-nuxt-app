@@ -9,8 +9,8 @@ export default defineNuxtConfig({
   nitro: {
     output: { publicDir: "dist" },
     static: true,
-    routes: [],
     prerender: {
+      routes: [],
       crawlLinks: false,
       failOnError: false,
     },
