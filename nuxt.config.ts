@@ -6,6 +6,13 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
 
+  runtimeConfig: {
+    public: {
+      apiBase: "", // 对应 NUXT_PUBLIC_API_BASE
+      ssr: process.env.NUXT_SSR === "true",
+    },
+  },
+
   nitro: {
     output: { publicDir: "dist" },
     static: true,
@@ -13,6 +20,19 @@ export default defineNuxtConfig({
       routes: [],
       crawlLinks: false,
       failOnError: false,
+    },
+  },
+
+  app: {
+    baseURL: "/",
+    buildAssetsDir: "/_nuxt/",
+    head: {
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
+        },
+      ],
     },
   },
 
@@ -55,24 +75,4 @@ export default defineNuxtConfig({
   },
 
   css: ["swiper/css", "swiper/css/autoplay", "swiper/css/pagination"],
-
-  runtimeConfig: {
-    public: {
-      apiBase: "", // 对应 NUXT_PUBLIC_API_BASE
-      ssr: process.env.NUXT_SSR === "true",
-    },
-  },
-
-  app: {
-    baseURL: "/",
-    buildAssetsDir: "/_nuxt/",
-    head: {
-      meta: [
-        {
-          name: "viewport",
-          content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
-        },
-      ],
-    },
-  },
 })
