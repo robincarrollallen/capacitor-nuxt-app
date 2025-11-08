@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { ZDisplayMode, ZRewardType } from '../../../../data'
-import { useOpenBoxHandle } from '../../logic'
-import { REWARD_ICON } from './data'
+import type { ZDisplayMode } from "../../../../data"
+import { ZRewardType } from "../../../../data"
+import { useOpenBoxHandle } from "../../logic"
+import { REWARD_ICON } from "./data"
 
 const props = defineProps<{
-	rewardList: Recordable[]
-	rewardType: keyof typeof ZRewardType.enum
-	rewardShowMode: keyof typeof ZDisplayMode.enum
+  rewardList: Recordable[]
+  rewardType: keyof typeof ZRewardType.enum
+  rewardShowMode: keyof typeof ZDisplayMode.enum
 }>()
 
 const list = ref(props.rewardList)
@@ -15,28 +16,28 @@ const { openBoxHandle } = useOpenBoxHandle()
 </script>
 
 <template>
-	<div class="agent-reward-list-content">
-		<div class="agent-reward-list-item" v-for="item in list" :key="item.uuid">
-			<div class="agent-reward-list-icon" :class="{ light: item.isMeet, animate: item.showOpenAni }">
-				<img v-if="item.showOpenAni" :src="REWARD_ICON[`${props.rewardShowMode}_animate`]"/>
-				<img v-else :class="{ opening: item.opening }" :src="REWARD_ICON[`${props.rewardShowMode}_${item.isOpen}`]" @click="openBoxHandle(item, 'agency')"/>
-			</div>
-			<div class="agent-reward-list-amount" :class="{ light: item.isMeet, random: props.rewardType === ZRewardType.enum.RANDOM && !item.isOpen, opened: item.isOpen, animate: item.showOpenAni }">
-				<span v-if="props.rewardType === ZRewardType.enum.FIXED || item.isOpen">{{ item.rewardAmount }}</span>
-				<div v-else>
-					<p>{{ item.rewardAmount.split('~')[0] }}</p>
-					<p>{{ `~${item.rewardAmount.split('~')[1]}` }}</p>
-				</div>
-			</div>
-			<div class="agent-reward-list-condition">
-				<div>
-					{{ $t('activity.agent9') }}
-					<span>{{ item.userCount }}</span>
-					{{ $t('activity.agent7') }}
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="agent-reward-list-content">
+    <div v-for="item in list" :key="item.uuid" class="agent-reward-list-item">
+      <div class="agent-reward-list-icon" :class="{ light: item.isMeet, animate: item.showOpenAni }">
+        <img v-if="item.showOpenAni" :src="REWARD_ICON[`${props.rewardShowMode}_animate`]">
+        <img v-else :class="{ opening: item.opening }" :src="REWARD_ICON[`${props.rewardShowMode}_${item.isOpen}`]" @click="openBoxHandle(item, 'agency')">
+      </div>
+      <div class="agent-reward-list-amount" :class="{ light: item.isMeet, random: props.rewardType === ZRewardType.enum.RANDOM && !item.isOpen, opened: item.isOpen, animate: item.showOpenAni }">
+        <span v-if="props.rewardType === ZRewardType.enum.FIXED || item.isOpen">{{ item.rewardAmount }}</span>
+        <div v-else>
+          <p>{{ item.rewardAmount.split('~')[0] }}</p>
+          <p>{{ `~${item.rewardAmount.split('~')[1]}` }}</p>
+        </div>
+      </div>
+      <div class="agent-reward-list-condition">
+        <div>
+          {{ $t('activity.agent9') }}
+          <span>{{ item.userCount }}</span>
+          {{ $t('activity.agent7') }}
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="less" scoped>
