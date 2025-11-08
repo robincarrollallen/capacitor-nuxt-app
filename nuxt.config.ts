@@ -6,7 +6,14 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
 
-  nitro: { output: { publicDir: "dist" } },
+  nitro: {
+    output: { publicDir: "dist" },
+    prerender: {
+      routes: [],
+      crawlLinks: false,
+      failOnError: false,
+    },
+  },
 
   spaLoadingTemplate: false,
 
