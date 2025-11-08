@@ -10,7 +10,7 @@
     "build:web": " NUXT_SSR=false nuxt generate",
     "build:ssr": "nuxt prepare && NUXT_SSR=true nuxt build",
     "build:csr": "nuxt prepare && nuxt generate && cap sync",
-    "postinstall": "nuxt prepare && nuxt generate",
+    "postinstall": "nuxt prepare",
     "ionic:serve": "nuxt dev",
     "ionic:build": "nuxt generate && cap sync",
     "ios": "ionic cap run ios --livereload --external",
