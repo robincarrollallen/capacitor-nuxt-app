@@ -4,6 +4,7 @@ import { LANGUAGE_REVERSE } from "@/enums/language"
 
 /** Global plugin, used to set website information <Execute once when the page is first loaded> */
 export default defineNuxtPlugin(async (_to) => {
+  const config = useRuntimeConfig() // 获取运行时配置
   const cookieLocale = useCookie("lang") as Ref
   let siteInfo = null
 
@@ -17,13 +18,13 @@ export default defineNuxtPlugin(async (_to) => {
   }
   else {
     // ✅ 添加环境变量打印
-    console.log("🔍 === Plugin Environment Debug ===")
-    console.log("process.env.NUXT_SSR:", process.env.NUXT_SSR)
-    console.log("process.env.NODE_ENV:", process.env.NODE_ENV)
-    console.log("import.meta.server:", import.meta.server)
-    console.log("import.meta.client:", import.meta.client)
-    console.log("import.meta.prerender:", import.meta.prerender)
-    console.log("===================================")
+    console.log("🔍 Plugin Environment:", {
+      ssrEnabled: config.public.ssr,
+      nuxtSSR: process.env.NUXT_SSR,
+      nodeEnv: process.env.NODE_ENV,
+      isServer: import.meta.server,
+      isClient: import.meta.client,
+    })
 
     const { data: tenant } = await useFetch("/api/tenant")
     console.log("tenant", tenant.value)
