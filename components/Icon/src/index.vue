@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import DOMPurify from "dompurify"
 import { getOrSetSvgCacheAsync } from "./data"
-import { IMAGE_TYPE, IMAGE_TYPE_VALUES, type ImageType, SVG_ATTRS, SVG_TAGS } from "@/enums"
+import { IMAGE_TYPE, IMAGE_TYPE_VALUES, type ImageType } from "@/enums"
 
 interface Props {
   src?: string
@@ -70,6 +69,33 @@ async function importImage(pathParts: string[]) {
   return imageModule.default
 }
 
+/** Check if the src is a base64 svg */
+function isSvgBase64(src: string): boolean {
+  return /^data:image\/svg\+xml/i.test(src)
+}
+
+/** Check if the src is a base64 image */
+function isBase64(src: string): boolean {
+  return /^data:image\//i.test(src)
+}
+
+/** Load base64 svg */
+async function loadSvgBase64(src: string) {
+  const [header, data] = src.split(",")
+  if (!data) {
+    return console.error("Invalid SVG data URL format")
+  }
+
+  imageType.value = IMAGE_TYPE.SVG
+
+  const svgRawContent = header.includes("base64")
+    ? atob(data) // Base64 编码的 SVG
+    : decodeURIComponent(data) // URL 编码或明文 SVG
+
+  svgContent.value = getSvgPurifyContent(svgRawContent) // 清理并赋值给 svgContent（用于 v-html）
+  isVisible.value = true
+}
+
 /**
  * Load remote SVG file
  * @param src - The src of the SVG file
@@ -82,11 +108,7 @@ async function loadRemote(src: string) {
     if (imageType.value === IMAGE_TYPE.SVG) {
       const content = await response.text()
       // ✅ 使用 DOMPurify 清理
-      svgContent.value = DOMPurify.sanitize(content, {
-        USE_PROFILES: { svg: true, svgFilters: true },
-        ADD_TAGS: SVG_TAGS, // 允许额外的标签
-        ADD_ATTR: SVG_ATTRS, // 允许额外的属性
-      })
+      svgContent.value = getSvgPurifyContent(content)
     }
     isVisible.value = true
   }
@@ -123,14 +145,17 @@ async function loadLocal(src: string) {
 /** Load SVG */
 async function loadSvg() {
   try {
-    const isRemote = props.src.startsWith("/") || props.src.startsWith("http")
-    const isLocal = props.src.startsWith("~/") || props.src.startsWith("@/")
-
-    if (isRemote) {
+    if (props.src.startsWith("/") || props.src.startsWith("http")) {
       loadRemote(props.src)
     }
-    else if (isLocal) {
+    else if (props.src.startsWith("~/") || props.src.startsWith("@/")) {
       loadLocal(props.src)
+    }
+    else if (isSvgBase64(props.src)) {
+      loadSvgBase64(props.src)
+    }
+    else if (isBase64(props.src)) {
+      isVisible.value = true
     }
     else {
       console.warn("Icon: Invalid src format. Expected remote src or local path starting with ~/ or @/", props.src)
