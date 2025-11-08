@@ -19,7 +19,7 @@ export default defineNuxtPlugin(async (_to) => {
   else {
     // ✅ 添加环境变量打印
     console.log("🔍 Plugin Environment:", {
-      ssrEnabled: config.public.ssr,
+      ssrEnabled: config.public,
       nuxtSSR: process.env.NUXT_SSR,
       nodeEnv: process.env.NODE_ENV,
       isServer: import.meta.server,
