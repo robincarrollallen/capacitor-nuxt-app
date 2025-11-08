@@ -45,6 +45,7 @@ jobs:
         env:
           NUXT_SSR: false
           NODE_ENV: production
+          BASE_URL: /capacitor-nuxt-app/
         run: bun run build:web
       # ✨ 验证 dist 目录
       - name: Verify dist directory
