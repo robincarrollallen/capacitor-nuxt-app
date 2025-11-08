@@ -27,7 +27,6 @@ export default defineNuxtPlugin(async (_to) => {
     })
 
     const { data: tenant } = await useFetch("/api/tenant")
-    console.log("tenant", tenant.value)
 
     siteInfo = useState("tenantInfo", () => ({
       ...tenant.value,
