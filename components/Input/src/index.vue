@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { FieldType } from 'vant/lib/field/types'
-import { INPUT_TYPE, V_MODEL_KEY, VAN_ICON } from '@/enums'
+import type { FieldType } from "vant/lib/field/types"
+import { INPUT_TYPE, VAN_ICON, V_MODEL_KEY } from "@/enums"
 
 interface Props {
   type?: string
   label?: string
-  error?: boolean
+  error?: boolean // 是否显示错误信息
   border?: boolean
-	required?: boolean
+  required?: boolean
   underline?: boolean
   modelValue?: string // 父组件支持v-model 或 v-model:value 传入值
   errorMessage?: string
@@ -18,12 +18,13 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-	border: true,
-	placeholder: ''
+  border: true,
+  placeholder: "",
 })
 
 const emits = defineEmits([
-	V_MODEL_KEY.VALUE // 父组件支持v-model 或 v-model:value 接收值
+  V_MODEL_KEY.VALUE, // 父组件支持v-model 或 v-model:value 接收值
+  V_MODEL_KEY.VERIFIED, // 输入成功
 ])
 
 const slots = useSlots()
@@ -33,89 +34,105 @@ const emptyError = ref(false)
 
 /** Input Value */
 const value = computed({
-	get() {
-		return props.modelValue ?? ''
-	},
-	set(value) {
-		emits(V_MODEL_KEY.VALUE, value)
-	}
+  get() {
+    return props.modelValue ?? ""
+  },
+  set(value: string) {
+    emits(V_MODEL_KEY.VALUE, value)
+  },
 })
 /** Input Type */
 const inputType = computed(() => {
-	if (props.type === INPUT_TYPE.PASSWORD) {
-		return showPassword.value ? INPUT_TYPE.TEXT : INPUT_TYPE.PASSWORD
-	}
-	return props.type as FieldType
+  if (props.type === INPUT_TYPE.PASSWORD) {
+    return showPassword.value ? INPUT_TYPE.TEXT : INPUT_TYPE.PASSWORD
+  }
+  return props.type as FieldType
 })
 /** Is Has Prefix */
 const hasPrefix = computed(() => {
-	return !!slots.prefix || props.label
+  return !!slots.prefix || props.label
 })
 /** Input Right Icon */
 const rightIcon = computed(() => {
-	if (props.type === INPUT_TYPE.PASSWORD) {
-		return showPassword.value ? VAN_ICON.EYE_O : VAN_ICON.CLOSED_EYE
-	}
-	return ''
+  if (props.type === INPUT_TYPE.PASSWORD) {
+    return showPassword.value ? VAN_ICON.EYE_O : VAN_ICON.CLOSED_EYE
+  }
+  return ""
 })
 /** Input Verified Error */
 const verifiedError = computed(() => {
-	if (props.errorMessage) {
-		return props.errorMessage
-	}
+  if (props.errorMessage) {
+    return props.errorMessage
+  }
 
-	if (value.value) {
-		const result = validateInput(value.value, props.type)
-		return result === true ? '' : result
-	}
+  if (value.value) {
+    const result = validateInput(value.value, props.type)
+    return result === true ? "" : result
+  }
 
-	return ''
+  return ""
 })
 /** Input Errored State */
 const errored = computed(() => {
-	return props.error && !!verifiedError.value && !!value.value
+  return props.error && !!verifiedError.value && !!value.value
 })
 /** Input Verified */
 const verified = computed(() => {
-	return props.error && !!value.value && !verifiedError.value
+  return props.error && !!value.value && !verifiedError.value
+})
+
+watch(verified, (newValue: boolean, oldValue: boolean) => {
+  if (newValue && !oldValue) {
+    emits(V_MODEL_KEY.VERIFIED, true)
+  }
+})
+
+watch(errored, (newValue: boolean, oldValue: boolean) => {
+  if (newValue && !oldValue) {
+    emits(V_MODEL_KEY.VERIFIED, false)
+  }
 })
 
 /** Handle blur */
-const handleBlur = () => {
-	if (props.required && !value.value) {
-		emptyError.value = true
-	}
+function handleBlur() {
+  if (props.required && !value.value) {
+    emptyError.value = true
+  }
 }
 
 /** Handle focus */
-const handleFocus = () => {
-	emptyError.value = false
+function handleFocus() {
+  emptyError.value = false
 }
 
 /** Handle click right icon */
-const handleClickRightIcon = () => {
-	showPassword.value = !showPassword.value
+function handleClickRightIcon() {
+  showPassword.value = !showPassword.value
 }
 </script>
 
 <template>
   <van-field
-		v-model="value"
-		v-bind="$attrs"
-		@blur="handleBlur"
-		@focus="handleFocus"
-		@click-right-icon="handleClickRightIcon"
-		:class="{verified: verified, errored: errored, prefix: hasPrefix, border: border}"
-		:right-icon="rightIcon"
-		:border="underline"
-		:error="emptyError"
-		:type="inputType"
-	>
-		<template #label>
-			<slot name="prefix">{{ label ? `${label}` : '' }}</slot>
-		</template>
-	</van-field>
-	<p v-if="error" :class="{error: !!verifiedError}"><van-icon :name="VAN_ICON.WARNING_O" /> {{ verifiedError }}</p>
+    v-model="value"
+    v-bind="$attrs"
+    :class="{ verified, errored, prefix: hasPrefix, border }"
+    :right-icon="rightIcon"
+    :border="underline"
+    :error="emptyError"
+    :type="inputType"
+    @blur="handleBlur"
+    @focus="handleFocus"
+    @click-right-icon="handleClickRightIcon"
+  >
+    <template #label>
+      <slot name="prefix">
+        {{ label ? `${label}` : '' }}
+      </slot>
+    </template>
+  </van-field>
+  <p v-if="error" :class="{ error: !!verifiedError }">
+    <van-icon :name="VAN_ICON.WARNING_O" /> {{ verifiedError }}
+  </p>
 </template>
 
 <style lang="less" scoped>

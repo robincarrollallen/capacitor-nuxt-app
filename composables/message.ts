@@ -1,8 +1,8 @@
 export function useInputErrorMessage() {
-  const { t } = useI18n()
+  const { $i18n } = useNuxtApp()
 
   return {
-    account: t("hint.invalidUsername"),
-    password: t("hint.invalidPassword"),
+    account: $i18n.t("hint.invalidUsername"),
+    password: $i18n.t("hint.invalidPassword"),
   }
 }

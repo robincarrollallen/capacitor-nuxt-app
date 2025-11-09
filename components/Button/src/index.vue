@@ -73,7 +73,7 @@ function endRipple() {
 <template>
   <button
     ref="buttonRef"
-    :disabled="props.disabled"
+    :disabled="props.disabled || props.loading"
     :class="{ shiny: !props.disabled && props.shiny }"
     @mousedown="startRipple"
     @mouseup="endRipple"
@@ -121,6 +121,12 @@ button {
 		z-index: 1;
 		animation: shiny 4s ease-in-out infinite;
 	}
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--ep-color-text-inverse-disabled);
+    background: var(--ep-color-background-fill-active-disabled);
+  }
 
 	:deep(div) {
 		span:nth-child(1) {

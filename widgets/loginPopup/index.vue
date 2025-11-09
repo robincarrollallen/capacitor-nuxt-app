@@ -6,7 +6,24 @@ import { Components } from "@/theme/components"
 const statusStore = useStatusStore()
 const NavBarLogo = defineAsyncComponent(Components.navBarLogo)
 
-const { tabs, accountType, username, password, isLogin, isAccount, isPhone, isRegister, confirmPassword, loginHandler, registerHandler, handleClose } = useLoginPopupLogic()
+const {
+  tabs,
+  isLogin,
+  isPhone,
+  username,
+  password,
+  isAccount,
+  isRegister,
+  accountType,
+  loginLoading,
+  loginVerified,
+  confirmPassword,
+  handleUsernameVerified,
+  handlePasswordVerified,
+  registerHandler,
+  loginHandler,
+  handleClose,
+} = useLoginPopupLogic()
 </script>
 
 <template>
@@ -45,17 +62,17 @@ const { tabs, accountType, username, password, isLogin, isAccount, isPhone, isRe
         <b><SliderTabs v-model:model-value="accountType" :tabs="tabs" /></b>
 
         <form class="login-popup-content-body">
-          <Input v-if="isAccount" v-model="username" error clearable :type="INPUT_TYPE.ACCOUNT" required :placeholder="$t('label.username')">
+          <Input v-if="isAccount" v-model="username" error clearable :type="INPUT_TYPE.ACCOUNT" required :placeholder="$t('label.username')" @verified="handleUsernameVerified">
             <template #prefix>
               <van-icon name="user-o" />
             </template>
           </Input>
-          <Input v-if="isPhone" v-model="username" error clearable :type="INPUT_TYPE.PHONE" required :placeholder="$t('label.phone')">
+          <Input v-if="isPhone" v-model="username" error clearable :type="INPUT_TYPE.PHONE" required :placeholder="$t('label.phone')" @verified="handleUsernameVerified">
             <template #prefix>
               <van-icon name="phone-o" />
             </template>
           </Input>
-          <Input v-model="password" error clearable :type="INPUT_TYPE.PASSWORD" :autocomplete="isRegister ? 'new-password' : 'current-password'" required :placeholder="$t('label.password')">
+          <Input v-model="password" error clearable :type="INPUT_TYPE.PASSWORD" :autocomplete="isRegister ? 'new-password' : 'current-password'" required :placeholder="$t('label.password')" @verified="handlePasswordVerified">
             <template #prefix>
               <van-icon name="lock" />
             </template>
@@ -68,10 +85,10 @@ const { tabs, accountType, username, password, isLogin, isAccount, isPhone, isRe
         </form>
 
         <div class="submit-btn">
-          <Button v-if="isLogin" @click="loginHandler">
+          <Button v-if="isLogin" :disabled="!loginVerified" :loading="loginLoading" @click="loginHandler">
             {{ $t('main.login') }}
           </Button>
-          <Button v-else @click="registerHandler">
+          <Button v-else disabled @click="registerHandler">
             {{ $t('main.register') }}
           </Button>
         </div>
