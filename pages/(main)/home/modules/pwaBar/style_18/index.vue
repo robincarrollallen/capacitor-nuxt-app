@@ -21,7 +21,7 @@ const { tenantInfo, installPwa } = usePwaBarLogic()
         {{ $t('viewsTabbar.pwaView1') }}
       </div>
       <div class="pwa-btn-wrap">
-        <van-image class="pwa-money" src="/images/pwa-money.png" :show-loading="false" />
+        <Image class="pwa-money" src="/images/pwa-money.png" :show-loading="false" />
         <Button class="pwa-btn" @click="installPwa">
           <Icon src="@/assets/svg/download-new.svg" class="download-svg" />
           <span class="btn-text">{{ $t('viewsSystem.install') }}</span>
