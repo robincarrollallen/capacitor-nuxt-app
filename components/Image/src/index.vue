@@ -19,9 +19,30 @@ const imageSrc = computed(() => {
 </script>
 
 <template>
-  <van-image :src="imageSrc" />
+  <van-image :src="imageSrc" fit="contain">
+    <template #error>
+      <Icon src="@/assets/icons/heart.png" />
+    </template>
+    <template #loading>
+      <Icon src="@/assets/icons/heart.png" />
+    </template>
+  </van-image>
 </template>
 
 <style lang="less" scoped>
+.van-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  --van-image-placeholder-background: var(--ep-color-text-weakest);
 
+  img {
+    object-fit: contain;
+  }
+
+  em {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+}
 </style>

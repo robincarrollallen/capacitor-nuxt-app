@@ -19,13 +19,11 @@ const { tabList } = useActivityLogic()
 
 <template>
   <div class="activity-page page-safe-area">
-    <ClientOnly>
-      <van-tabs v-model:active="activeTabIndex" shrink>
-        <van-tab v-for="item in tabList" :key="item.type" :title="item.name">
-          <component :is="item.component" />
-        </van-tab>
-      </van-tabs>
-    </ClientOnly>
+    <van-tabs v-model:active="activeTabIndex" shrink>
+      <van-tab v-for="item in tabList" :key="item.type" :title="item.name">
+        <component :is="item.component" />
+      </van-tab>
+    </van-tabs>
   </div>
 </template>
 

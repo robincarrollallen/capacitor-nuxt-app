@@ -1,60 +1,60 @@
 <script setup lang="ts">
-import { generatePreviewText, getActivityDefaultName } from './data'
-import { useActivityListLogic } from './logic'
-import { ActivityListData } from './data'
-import { ZNameType } from '@/enums'
+import { ActivityListData, generatePreviewText, getActivityDefaultName } from "./data"
+import { useActivityListLogic } from "./logic"
+import { ZNameType } from "@/enums"
 
 const activityStore = useActivityStore()
 
 const { activityList, ActivityStatus, language, toActivity } = useActivityListLogic()
 
 onMounted(() => {
-	activityStore.activityList = ActivityListData.activityList
+  activityStore.activityList = ActivityListData.activityList
 
-	activityList.value = activityStore.activityList.map((item) => {
-
-		if (item.nameType === ZNameType.enum.DEFAULT && item.nameParams) {
-			try {
-				const nameParams = JSON.parse(`${item.nameParams}`)
-				item.name = getActivityDefaultName(language.value, item.type, nameParams.variablesValue)
-			} catch (error) {
-				console.warn(error)
-			}
-		}
-		if (item.previewText) {
-			try {
-				let preTextParams = JSON.parse(`${item.previewText}`)
-				item.previewText = generatePreviewText(language.value, preTextParams.variablesValue)
-			} catch (error) {
-				console.warn(item.previewText)
-			}
-		}
-		return item
-	})
+  activityList.value = activityStore.activityList.map((item: Recordable) => {
+    if (item.nameType === ZNameType.enum.DEFAULT && item.nameParams) {
+      try {
+        const nameParams = JSON.parse(`${item.nameParams}`)
+        item.name = getActivityDefaultName(language.value, item.type, nameParams.variablesValue)
+      }
+      catch (error) {
+        console.warn(error)
+      }
+    }
+    if (item.previewText) {
+      try {
+        const preTextParams = JSON.parse(`${item.previewText}`)
+        item.previewText = generatePreviewText(language.value, preTextParams.variablesValue)
+      }
+      catch {
+        console.warn(item.previewText)
+      }
+    }
+    return item
+  })
 })
 </script>
 
 <template>
-	<div class="activity-list">
-		<div class="activity-list-item" v-for="item in activityList" :key="item.id" @click="toActivity(item)">
-			<Button class="activity-list-item-poster" :style="`background: url(${item.bannerBackground}) center/cover`" shiny>
-				<div class="activity-list-item-rule">
-					<p v-for="(text, index) in (item.previewText.split('\n'))" :key="index">
-						{{ text }}
-					</p>
-				</div>
-				<van-image :src="item.bannerLogo" />
-			</Button>
-			<div class="activity-list-item-content">
-				<div class="activity-list-item-content-title">
-					{{ item.name }}
-				</div>
-				<Button class="activity-list-item-content-preview">
-					{{ ActivityStatus[item.status] }}
-				</Button>
-			</div>
-		</div>
-	</div>
+  <div class="activity-list">
+    <div v-for="item in activityList" :key="item.id" class="activity-list-item" @click="toActivity(item)">
+      <Button class="activity-list-item-poster" :style="`background: url(${item.bannerBackground}) center/cover`" shiny>
+        <div class="activity-list-item-rule">
+          <p v-for="(text, index) in (item.previewText.split('\n'))" :key="index">
+            {{ text }}
+          </p>
+        </div>
+        <van-image :src="item.bannerLogo" />
+      </Button>
+      <div class="activity-list-item-content">
+        <div class="activity-list-item-content-title">
+          {{ item.name }}
+        </div>
+        <Button class="activity-list-item-content-preview">
+          {{ ActivityStatus[item.status] }}
+        </Button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="less" scoped>

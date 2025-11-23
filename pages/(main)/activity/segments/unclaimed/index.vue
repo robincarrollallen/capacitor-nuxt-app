@@ -65,7 +65,7 @@ function onSelect(value: Recordable) {
         <span class="bonus-value">{{ `0.00` }}</span>
       </div>
     </div>
-    <RollList bottom-space :list="list" :loading="loading" :finished="finished" :refreshing="refreshing" @load="onLoad" @refresh="onRefresh">
+    <RollList :list="list" :loading="loading" :finished="finished" :refreshing="refreshing" @load="onLoad" @refresh="onRefresh">
       <template #default="{ item, index }">
         <ul :class="{ even: index % 2 !== 0 }">
           <li class="unclaimed-item">

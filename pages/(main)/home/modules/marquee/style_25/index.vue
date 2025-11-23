@@ -17,7 +17,7 @@ const { marqueeList } = useMarqueeLogic()
       <Icon :src="props.icons[0]" class="broadcast-icon" />
       <Marquee class="marquee-content" :content="marqueeList" />
     </div>
-    <Icon :src="props.icons[1]" class="message-icon" />
+    <Icon :src="props.icons[1]" class="message-icon" @click="navigateTo('/game/search')" />
   </div>
 </template>
 

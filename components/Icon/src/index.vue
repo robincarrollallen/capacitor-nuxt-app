@@ -227,7 +227,6 @@ onUnmounted(() => {
 }
 
 em.__icon {
-  background: var(--ep-color-background-fill-active-disabled);
   position: relative;
   display: flex;
   align-items: center;

@@ -129,6 +129,9 @@ function handleClickRightIcon() {
         {{ label ? `${label}` : '' }}
       </slot>
     </template>
+    <template #right-icon>
+      <slot name="suffix" />
+    </template>
   </van-field>
   <p v-if="error" :class="{ error: !!verifiedError }">
     <van-icon :name="VAN_ICON.WARNING_O" /> {{ verifiedError }}
