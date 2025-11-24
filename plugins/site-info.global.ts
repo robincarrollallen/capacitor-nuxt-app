@@ -1,4 +1,5 @@
 import { themeManager } from "@/theme"
+import { useAppStore } from "@/stores/app"
 import { THEME_TYPE, ThemeSupport } from "@/theme/type"
 import { LANGUAGE_REVERSE } from "@/enums/language"
 

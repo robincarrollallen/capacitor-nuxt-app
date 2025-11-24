@@ -1,4 +1,6 @@
 import { MAIN_PATH } from "@/enums/path"
+import { useUserStore } from "@/stores/user"
+import { useStatusStore } from "@/stores/status"
 
 // Redirect middleware <Middleware is executed every time the route is redirected>
 export default defineNuxtRouteMiddleware((to, from) => {

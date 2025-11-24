@@ -35,17 +35,29 @@ const icons = {
 <style scoped lang="less">
 @media (max-width: 539px) {
 	nav {
-		background: url('@/assets/svg/tabbar/bg-25.svg') no-repeat;
-		background-size: 100% auto;
-		background-position: bottom;
 		position: fixed;
 		bottom: 0;
 		width: 100%;
-		aspect-ratio: 39/9;
 		display: grid;
 		z-index: 9;
 		padding-bottom: .5rem;
 		grid-template-columns: repeat(5, 1fr);
+		height: calc(var(--sab) + 5.625rem);
+		background: linear-gradient(to bottom, transparent var(--sab), var(--ep-color-background-fill-foot-bar) var(--sab));
+		padding-bottom: calc(var(--sab) + .5rem);
+
+		&::before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			aspect-ratio: 13/3;
+			background: url('@/assets/svg/tabbar/bg-25.svg') no-repeat;
+			background-size: 100% auto;
+			background-position: bottom;
+		}
 
 		a {
 			height: 100%;

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { usePwaBarLogic } from "../logic"
 
-const { tenantInfo, installPwa } = usePwaBarLogic()
+const { isNative, tenantInfo, installPwa } = usePwaBarLogic()
 </script>
 
 <template>
-  <div class="pwa-bar">
+  <div v-if="!isNative" class="pwa-bar">
     <div class="pwa-wrap">
       <div class="close-btn-bg" />
       <van-icon
