@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/vue"
-import { levelBgImages, pagination } from "./data"
+import { levelBgImages, levelIcons, pagination } from "./data"
 
 const { data } = await useFetch("/api/agency/info")
 
@@ -48,7 +48,7 @@ function computeFirstRechargeComm(level: number) {
           </span>
           <div class="team-level-wrap">
             <div class="team-level-logo">
-              <img :src="`/images/agent/mlm-level${item.level - 1}.png`">
+              <img :src="levelIcons[item.level - 1]">
             </div>
             <div class="team-level-content">
               <div class="team-level">
