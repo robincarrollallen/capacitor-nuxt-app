@@ -43,12 +43,6 @@ export default defineNuxtConfig({
 
   tailwindcss: { viewer: false },
 
-  devServer: {
-    port: 4000, // 开发服务器端口
-    host: "0.0.0.0", // 开发服务器主机
-    https: false, // 开发服务器是否使用 HTTPS
-  },
-
   i18n: {
     locales: Object.entries(LANGUAGE_TYPE).map(([code, name]) => ({
       code,
@@ -71,6 +65,18 @@ export default defineNuxtConfig({
     lazyload: {
       lazyComponent: true,
     },
+  },
+
+  vite: {
+    build: {
+      assetsInlineLimit: 0,
+    },
+  },
+
+  devServer: {
+    port: 4000,
+    host: "0.0.0.0",
+    https: false,
   },
 
   css: ["swiper/css", "swiper/css/autoplay", "swiper/css/pagination"],

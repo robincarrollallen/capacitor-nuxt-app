@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { pagination } from './data'
-import { Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Pagination } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/vue"
+import { levelBgImages, pagination } from "./data"
 
-const { data } = await useFetch('/api/agency/info')
+const { data } = await useFetch("/api/agency/info")
 
 const agentStore = useAgentStore()
 const tenantStore = useTenantStore()
@@ -12,103 +12,104 @@ const totalTeamCount = computed(() => (data.value.info?.histDirectCnt || 0) + (d
 const totalTeamBet = computed(() => Number(data.value.info?.histBet || 50000)) // Total team bet
 const currentLevel = computed(() => data.value.info?.agencyLevel || 1) // Current level
 const agentLevelConfig = computed(() => {
-	try {
-		return JSON.parse(agentStore.agencyConfig.templateInfo.config)
-	} catch {
-		return []
-	}
+  try {
+    return JSON.parse(agentStore.agencyConfig.templateInfo.config)
+  }
+  catch {
+    return []
+  }
 })
 
 const totalComm = computed(() => {
-	let comm = 0
-	agentStore.agencyConfig.inviteConfig?.commissionLevelConfig.forEach((item: any) => {
-		comm += item.rewardAmount / 100
-	})
-	return comm
+  let comm = 0
+  agentStore.agencyConfig.inviteConfig?.commissionLevelConfig.forEach((item: any) => {
+    comm += item.rewardAmount / 100
+  })
+  return comm
 })
 
 /**
  * Calculate first recharge rebate
  */
 function computeFirstRechargeComm(level: number) {
-	const config = agentStore.agencyConfig.inviteConfig?.firstRechargeRebateLevelConfig
-	const comm = config?.find((item: any) => item.level === level && item.subLevel === 1)
-	return formatMoneyToLocal((comm?.rate || 0) / 100)
+  const config = agentStore.agencyConfig.inviteConfig?.firstRechargeRebateLevelConfig
+  const comm = config?.find((item: any) => item.level === level && item.subLevel === 1)
+  return formatMoneyToLocal((comm?.rate || 0) / 100)
 }
 </script>
 
 <template>
-	<Swiper :modules="[Pagination]" :pagination="pagination" :slides-per-view="1.1" :slides-per-group="1" :initial-slide="0">
-		<SwiperSlide v-for="(item, index) in agentLevelConfig" :key="item.name">
-			<div class="team-wrap">
-					<div class="team-info" :style="{ background: `url('/svg/agent/bg-invite-level-${item.level - 1}.svg') no-repeat 0 0 / 100% 100%` }">
-						<span class="team-title">
-							{{ item.level === currentLevel ? $t('activity.myTeam') : $t('activity.nextLevel') }}
-						</span>
-						<div class="team-level-wrap">
-							<div class="team-level-logo">
-								<img :src="`/images/agent/mlm-level${item.level - 1}.png`">
-							</div>
-							<div class="team-level-content">
-								<div class="team-level">
-									<span class="team-label">{{ $t('mlmAgent.agentLevel') }}</span>
-									<span class="team-value">{{ `Lv.${item.level}` }}</span>
-									<span class="team-detail" @click="navigateTo('/record/subordinate')">
-										{{ $t('activity.agent28') }}
-										<!-- <IonIcon class="chevron-forward" :icon="chevronForward" /> -->
-									</span>
-								</div>
-								<div v-if="index === 0" class="team-current-text">
-									{{ $t('agent.achievedLevel') }}
-								</div>
-								<div v-else class="team-progress">
-									<div class="team-content">
-										<span class="team-label">{{ $t('key.teamCount') }}</span>
-										<van-progress :show-pivot="false" :percentage="totalTeamCount >= item.count ? 100 : totalTeamCount / safeNumber(item.count) * 100" />
-										<div class="team-count-wrap">
-											<span>{{ totalTeamCount }}</span>/<span>{{ item.count || 0 }}</span>
-										</div>
-									</div>
-									<div class="team-content">
-										<span class="team-label">{{ $t('agent.totalBet') }}</span>
-										<van-progress :show-pivot="false" :percentage="totalTeamBet >= safeNumber(item.totalTeamBet) ? 100 : totalTeamBet / safeNumber((item.totalTeamBet)) * 100" />
-										<div class="team-count-wrap">
-											<span>{{ formatMoneyToLocal(totalTeamBet) }}</span>/<span>{{ safeNumber(item.totalTeamBet) / 100 }}</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="reward-wrap">
-						<div class="rebate-info">
-							<div class="rebate-value">
-								{{ `${$t('activity.upto')} ${(item.rats[0]?.rat || 0) / 100}%` }}
-							</div>
-							<div>{{ $t('activity.betComm') }}</div>
-						</div>
-						<div class="rebate-line-wrap">
-							<div class="rebate-line" />
-						</div>
-						<div class="rebate-info">
-							<div class="rebate-value">
-								{{ `${$t('activity.rebate')} ${computeFirstRechargeComm(item.level)}%` }}
-							</div>
-							<div>{{ $t('task.NewbieTask:FirstRecharge') }}</div>
-						</div>
-						<div class="rebate-line-wrap">
-							<div class="rebate-line" />
-						</div>
-						<div class="rebate-info">
-							<div class="rebate-value">
-								{{ `${$t('activity.upto')} ${tenantStore.merchantCy} ${totalComm}` }}
-							</div>
-							<div>{{ $t('tags.inviteComm') }}</div>
-						</div>
-					</div>
-				</div>
-		</SwiperSlide>
-	</Swiper>
+  <Swiper :modules="[Pagination]" :pagination="pagination" :slides-per-view="1.1" :slides-per-group="1" :initial-slide="0">
+    <SwiperSlide v-for="(item, index) in agentLevelConfig" :key="item.name">
+      <div class="team-wrap">
+        <div class="team-info" :style="{ background: `url(${levelBgImages[item.level - 1]}) no-repeat 0 0 / 100% 100%` }">
+          <span class="team-title">
+            {{ item.level === currentLevel ? $t('activity.myTeam') : $t('activity.nextLevel') }}
+          </span>
+          <div class="team-level-wrap">
+            <div class="team-level-logo">
+              <img :src="`/images/agent/mlm-level${item.level - 1}.png`">
+            </div>
+            <div class="team-level-content">
+              <div class="team-level">
+                <span class="team-label">{{ $t('mlmAgent.agentLevel') }}</span>
+                <span class="team-value">{{ `Lv.${item.level}` }}</span>
+                <span class="team-detail" @click="navigateTo('/record/subordinate')">
+                  {{ $t('activity.agent28') }}
+                  <!-- <IonIcon class="chevron-forward" :icon="chevronForward" /> -->
+                </span>
+              </div>
+              <div v-if="index === 0" class="team-current-text">
+                {{ $t('agent.achievedLevel') }}
+              </div>
+              <div v-else class="team-progress">
+                <div class="team-content">
+                  <span class="team-label">{{ $t('key.teamCount') }}</span>
+                  <van-progress :show-pivot="false" :percentage="totalTeamCount >= item.count ? 100 : totalTeamCount / safeNumber(item.count) * 100" />
+                  <div class="team-count-wrap">
+                    <span>{{ totalTeamCount }}</span>/<span>{{ item.count || 0 }}</span>
+                  </div>
+                </div>
+                <div class="team-content">
+                  <span class="team-label">{{ $t('agent.totalBet') }}</span>
+                  <van-progress :show-pivot="false" :percentage="totalTeamBet >= safeNumber(item.totalTeamBet) ? 100 : totalTeamBet / safeNumber((item.totalTeamBet)) * 100" />
+                  <div class="team-count-wrap">
+                    <span>{{ formatMoneyToLocal(totalTeamBet) }}</span>/<span>{{ safeNumber(item.totalTeamBet) / 100 }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reward-wrap">
+          <div class="rebate-info">
+            <div class="rebate-value">
+              {{ `${$t('activity.upto')} ${(item.rats[0]?.rat || 0) / 100}%` }}
+            </div>
+            <div>{{ $t('activity.betComm') }}</div>
+          </div>
+          <div class="rebate-line-wrap">
+            <div class="rebate-line" />
+          </div>
+          <div class="rebate-info">
+            <div class="rebate-value">
+              {{ `${$t('activity.rebate')} ${computeFirstRechargeComm(item.level)}%` }}
+            </div>
+            <div>{{ $t('task.NewbieTask:FirstRecharge') }}</div>
+          </div>
+          <div class="rebate-line-wrap">
+            <div class="rebate-line" />
+          </div>
+          <div class="rebate-info">
+            <div class="rebate-value">
+              {{ `${$t('activity.upto')} ${tenantStore.merchantCy} ${totalComm}` }}
+            </div>
+            <div>{{ $t('tags.inviteComm') }}</div>
+          </div>
+        </div>
+      </div>
+    </SwiperSlide>
+  </Swiper>
 </template>
 
 <style lang="less" scoped>
@@ -171,7 +172,7 @@ function computeFirstRechargeComm(level: number) {
 					.team-level-logo {
 						width: 4.25rem;
 						padding: .8125rem;
-						background: url('/svg/agent/level-icon-bg.svg') no-repeat;
+						background: url('@/assets/svg/agent/level-icon-bg.svg') no-repeat;
 						background-size: 100% 100%;
 					}
 

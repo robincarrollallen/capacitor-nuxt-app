@@ -1,3 +1,4 @@
+import { defineStore } from "pinia"
 import { BASE_FONT_SIZE, MOBILE_DESIGN_WIDTH, MOBILE_MAX_WIDTH } from "@/constant"
 
 export const useSystemStore = defineStore("system", () => {

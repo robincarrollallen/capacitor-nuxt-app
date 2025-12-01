@@ -33,7 +33,7 @@ function changeLanguage(lang: any) {
 </template>
 
 <style scoped lang="less">
-:global(.language-dialog) {
+:global(.van-dialog.language-dialog) {
 	--van-text-color: var(--ep-color-text-default);
   background: var(--ep-color-background-fill-surface-raised-L1);
 }

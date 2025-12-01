@@ -76,7 +76,6 @@ const { marqueeList } = useMarqueeLogic()
 		.marquee-content {
 			flex: 1;
 		}
-
 	}
 
 	.message-icon {

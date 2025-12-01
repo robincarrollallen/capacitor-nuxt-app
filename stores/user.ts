@@ -1,3 +1,5 @@
+import { defineStore } from "pinia"
+
 export const useUserStore = defineStore("user", () => {
   const user = ref<Record<string, any>>({}) // 用户信息
   const defaultAvatar = ref("") // 默认头像

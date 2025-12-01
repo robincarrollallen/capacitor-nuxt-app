@@ -6,7 +6,7 @@ const props = defineProps({
   },
 })
 
-const basicAvatar = "/svg/user-default-avatar.svg"
+const basicAvatar = "@/assets/svg/user-default-avatar.svg"
 
 const userStore = useUserStore()
 const tenantStore = useTenantStore()

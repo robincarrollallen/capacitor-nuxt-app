@@ -1,4 +1,5 @@
 import { Locale } from "vant"
+import { defineStore } from "pinia"
 import { LanguageSupport, type LanguageType } from "@/enums/language"
 
 export const useAppStore = defineStore("app", () => {

@@ -1,3 +1,4 @@
+import { defineStore } from "pinia"
 import { MAIN_PATH, MAIN_PATHS, type MainPathType } from "~/enums/path"
 
 export const useStatusStore = defineStore("status", () => {
