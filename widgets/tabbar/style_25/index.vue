@@ -43,7 +43,7 @@ const icons = {
 		padding-bottom: .5rem;
 		grid-template-columns: repeat(5, 1fr);
 		height: calc(var(--sab) + 5.625rem);
-		background: linear-gradient(to bottom, transparent var(--sab), var(--ep-color-background-fill-foot-bar) var(--sab));
+		background: linear-gradient(to bottom, transparent 5.125rem, var(--ep-color-background-fill-foot-bar) 5.125rem);
 		padding-bottom: calc(var(--sab) + .5rem);
 
 		&::before {

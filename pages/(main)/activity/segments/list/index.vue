@@ -9,6 +9,7 @@ const { activityList, ActivityStatus, language, toActivity } = useActivityListLo
 
 onMounted(() => {
   activityStore.activityList = ActivityListData.activityList
+  console.log(activityStore.activityList)
 
   activityList.value = activityStore.activityList.map((item: Recordable) => {
     if (item.nameType === ZNameType.enum.DEFAULT && item.nameParams) {
