@@ -1,5 +1,7 @@
 # Project Documentation  [简体中文](README.zh-CN.md)
 
+#### Web Preview: https://robincarrollallen.github.io/capacitor-nuxt-app
+
 ## Technology Stack Overview
 
 This project is a hybrid mobile application framework based on **Nuxt 3 + Capacitor 6**, supporting iOS/Android native development and Web deployment. The project adopts an enterprise-level architecture design with complete multilingual, multi-theme, state management, and data persistence capabilities, suitable for multi-tenant mobile application scenarios such as gaming, social, and finance.

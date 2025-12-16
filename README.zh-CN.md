@@ -1,5 +1,7 @@
 # 项目说明文档  [English](README.md) 
 
+#### Web预览: https://robincarrollallen.github.io/capacitor-nuxt-app
+
 ## 技术栈概述
 
 本项目是一个基于 **Nuxt 3 + Capacitor 6** 的混合移动应用框架,支持 iOS/Android 原生开发和 Web 部署。项目采用企业级架构设计,具备完整的多语言、多主题、状态管理和数据持久化能力,适用于游戏、社交、金融等多租户移动应用场景。

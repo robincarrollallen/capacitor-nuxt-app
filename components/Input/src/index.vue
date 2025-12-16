@@ -169,6 +169,7 @@ function handleClickRightIcon() {
 	}
 
 	:deep(.van-field__label) {
+    flex: none;
 		width: auto;
 		margin-right: 0;
 	}
