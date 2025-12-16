@@ -12,9 +12,35 @@ export const useUserStore = defineStore("user", () => {
 
   /** Set user information */
   const setUser = async () => {
+    // TODO: 模拟网络请求
     try {
-      const { data } = await useFetch("/api/user/details")
-      user.value = data.value || {}
+      await delay(1000);
+      user.value = {
+				"id": 487105446,
+				"userName": "9999900100",
+				"phoneNumber": "9999900100",
+				"email": null,
+				"remark": null,
+				"type": "normal",
+				"tenantName": "多级分销 - 充值",
+				"realName": null,
+				"regionName": "印度",
+				"historicalPay": 20000,
+				"appType": "iOSH5",
+				"firstRechargeAmount": 20000,
+				"firstRechargeTime": "2025-08-03T17:40:40.000Z",
+				"withdrawCount": 0,
+				"avatar": "https://upload-us.b83.xyz/avatar/male_1.jpg",
+				"tgId": null,
+				"firstSetPassword": null,
+				"registerType": "phone:phone",
+				"userId": 487105446,
+				"trialPlayBalance": 0,
+				"trialPlayWithdrawHint": "1",
+				"isNewMail": true,
+				"canApplyRegisterReward": false,
+				"canUseRegisterRewardInfo": true
+			}
     }
     catch (error) {
       console.error("Failed to fetch user details:", error)

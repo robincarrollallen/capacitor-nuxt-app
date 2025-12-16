@@ -1245,10 +1245,10 @@ bun install
 
 ```bash
 # CSR (客户端渲染)
+npm run dev
 npm run dev:csr
 
 # SSR (服务端渲染)
-npm run dev
 npm run dev:ssr
 ```
 # nuxt.config.ts 配置 devServer 设置开发服务器

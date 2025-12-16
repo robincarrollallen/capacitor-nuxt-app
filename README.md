@@ -1245,6 +1245,7 @@ bun install
 ```bash
 # CSR (Client-side rendering)
 npm run dev
+npm run dev:csr
 
 # SSR (Server-side rendering)
 npm run dev:ssr

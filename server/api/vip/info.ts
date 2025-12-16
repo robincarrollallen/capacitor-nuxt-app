@@ -61,7 +61,6 @@ export default defineEventHandler(async () => {
 
 	try {
 		const result = await fetchVipInfo()
-		console.log('result >>>>>>>>>>>>>>', result)
 		return result
 	} catch (error) {
 		throw createError({
