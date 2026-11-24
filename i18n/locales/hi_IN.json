@@ -144,6 +144,12 @@
     "gameProvider": "खेल प्रदाता"
   },
   "sort": {
+    "ACTION": "एक्शन",
+    "JUMPING": "कूद",
+    "SHOOTING": "निशानेबाज़ी",
+    "STRATEGY": "रणनीति",
+    "ADVENTURE": "साहसिक",
+    "THREE_D": "3D",
     "ALL": "सभी",
     "POPULAR": "लोकप्रिय",
     "CHESS": "ताश के पत्ते",

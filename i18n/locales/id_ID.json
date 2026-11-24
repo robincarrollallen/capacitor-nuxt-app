@@ -144,6 +144,12 @@
     "gameProvider": "Penyedia Game"
   },
   "sort": {
+    "ACTION": "Aksi",
+    "JUMPING": "Lompat",
+    "SHOOTING": "Tembak",
+    "STRATEGY": "Strategi",
+    "ADVENTURE": "Petualangan",
+    "THREE_D": "3D",
     "ALL": "Semua",
     "POPULAR": "Populer",
     "CHESS": "Permainan Papan",

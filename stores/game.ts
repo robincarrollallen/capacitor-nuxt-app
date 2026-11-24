@@ -3,11 +3,25 @@ import gameListData from "public/data/gameList.json"
 import homeListData from "public/data/homeList.json"
 import platformListData from "public/data/platformList.json"
 
+const categoryLabels = [
+  ["ELECTRONIC", "ACTION"],
+  ["SPORTS", "JUMPING"],
+  ["VIDEO", "SHOOTING"],
+  ["CHESS", "STRATEGY"],
+  ["FISHING", "ADVENTURE"],
+  ["LOTTERY", "THREE_D"],
+] as const
+
 export const useGameStore = defineStore("game", () => {
   const gameList = ref(gameListData) // Game list
   const homeList = ref(homeListData) // Home list
   const platformList = ref(platformListData) // Platform list
   const homeHotList = ref(hotListData.filter(item => item.logoFlag)) // Home hot game list
+
+  const homeCategories = computed(() => categoryLabels.flatMap(([gameType, labelKey]) => {
+    const category = homeList.value.find(item => item.gameType === gameType)
+    return category ? [{ ...category, gameType, labelKey }] : []
+  }))
 
   const homePlatformList = computed(() => {
     return platformList.value.sort((a: Recordable, b: Recordable) => b.sort - a.sort).map((item: Recordable) => {
@@ -39,5 +53,5 @@ export const useGameStore = defineStore("game", () => {
     })
   })
 
-  return { homePlatformList, homeHotList, homeList, platformList, gameList }
+  return { homePlatformList, homeHotList, homeList, homeCategories, platformList, gameList }
 })

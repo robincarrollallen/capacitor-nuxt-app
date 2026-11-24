@@ -31,9 +31,7 @@ const { active, homePlatformList, tabsOffsetTop, homeList, isGameCategory, gameW
         </div>
       </template>
       <div v-if="active === index">
-        <div v-for="categoryGame of homeList" :key="categoryGame.id">
-          <component :is="gameWarpComponent" v-for="platform in gameCategory.platformList" :key="platform.id" :components="props.components[0]?.children" :platform="platform" :list="(platform as Recordable).gameList" />
-        </div>
+        <component :is="gameWarpComponent" v-for="platform in gameCategory.platformList" :key="platform.id" :components="props.components[0]?.children" :platform="platform" :list="platform.gameList" />
       </div>
     </van-tab>
   </van-tabs>
@@ -41,7 +39,8 @@ const { active, homePlatformList, tabsOffsetTop, homeList, isGameCategory, gameW
     <van-tab v-for="platform of homePlatformList" :key="platform.id" class="segment-pane">
       <template #title>
         <div class="segment-tab">
-          <Icon class="segment-tab-icon" :src="platform.logo" />
+          <i v-if="platform.platformIconStyle" class="segment-tab-icon" :style="platform.platformIconStyle" aria-hidden="true" />
+          <Icon v-else class="segment-tab-icon" :src="platform.logo" />
           <div>{{ platform.name }}</div>
         </div>
       </template>

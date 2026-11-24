@@ -1,10 +1,10 @@
 [
   {
     "id": 4,
-    "name": "PP",
-    "code": "ONE_API_PP",
+    "name": "Solorbit",
+    "code": "SOLORBIT",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721300405440/PPlogo_2.svg",
+    "logo": "/icons/platforms/solorbit.png",
     "openType": true,
     "sort": 22,
     "gameTypes": [
@@ -28,10 +28,10 @@
   },
   {
     "id": 10,
-    "name": "ONE_API_Tada",
-    "code": "ONE_API_Tada",
+    "name": "Emberkite",
+    "code": "EMBERKITE",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721300428399/tadalogo_2.svg",
+    "logo": "/icons/platforms/emberkite.png",
     "openType": true,
     "sort": 20,
     "gameTypes": [
@@ -63,10 +63,10 @@
   },
   {
     "id": 7,
-    "name": "PG",
-    "code": "ONE_API_PG",
+    "name": "Limeflare",
+    "code": "LIMEFLARE",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721300413882/PGlogo_2.svg",
+    "logo": "/icons/platforms/limeflare.png",
     "openType": true,
     "sort": 19,
     "gameTypes": [
@@ -82,10 +82,10 @@
   },
   {
     "id": 19,
-    "name": "Evoplay",
-    "code": "ONE_API_Evoplay",
+    "name": "Cometline",
+    "code": "COMETLINE",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721051950253/EVOPLAYlogo_2.svg",
+    "logo": "/icons/platforms/cometline.png",
     "openType": true,
     "sort": 18,
     "gameTypes": [
@@ -101,10 +101,10 @@
   },
   {
     "id": 11,
-    "name": "CQ9",
-    "code": "ONE_API_CQ9",
+    "name": "Prismgrid",
+    "code": "PRISMGRID",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721051939112/cq9logo_2.svg",
+    "logo": "/icons/platforms/prismgrid.png",
     "openType": true,
     "sort": 17,
     "gameTypes": [
@@ -120,10 +120,10 @@
   },
   {
     "id": 21,
-    "name": "JDB",
-    "code": "ONE_API_JDB",
+    "name": "Aurashard",
+    "code": "AURASHARD",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721051971255/JDBlogo_2.svg",
+    "logo": "/icons/platforms/aurashard.png",
     "openType": true,
     "sort": 16,
     "gameTypes": [
@@ -139,10 +139,10 @@
   },
   {
     "id": 2,
-    "name": "kk",
-    "code": "KKGAME",
+    "name": "Peakmint",
+    "code": "PEAKMINT",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1736578546701/KK.png",
+    "logo": "/icons/platforms/peakmint.png",
     "openType": true,
     "sort": 15,
     "gameTypes": [
@@ -190,10 +190,10 @@
   },
   {
     "id": 20,
-    "name": "ONE_API_Spinix",
-    "code": "ONE_API_Spinix",
+    "name": "Vortello",
+    "code": "VORTELLO",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721051963350/spinixlogo_2.svg",
+    "logo": "/icons/platforms/vortello.png",
     "openType": true,
     "sort": 14,
     "gameTypes": [
@@ -209,10 +209,10 @@
   },
   {
     "id": 22,
-    "name": "Evolution",
-    "code": "ONE_API_Evolution",
+    "name": "Dawnhalo",
+    "code": "DAWNHALO",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721051982176/Evolutionlogo_2.svg",
+    "logo": "/icons/platforms/dawnhalo.png",
     "openType": true,
     "sort": 12,
     "gameTypes": [
@@ -228,10 +228,10 @@
   },
   {
     "id": 23,
-    "name": "ONE_API_Spribe",
-    "code": "ONE_API_Spribe",
+    "name": "Mintflag",
+    "code": "MINTFLAG",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721052010525/Spribe.svg",
+    "logo": "/icons/platforms/mintflag.png",
     "openType": true,
     "sort": 11,
     "gameTypes": [
@@ -247,10 +247,10 @@
   },
   {
     "id": 35,
-    "name": "G759",
-    "code": "G759",
+    "name": "Tilebyte",
+    "code": "TILEBYTE",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/s1/1747042288934/759.svg",
+    "logo": "/icons/platforms/tilebyte.png",
     "openType": true,
     "sort": 10,
     "gameTypes": [
@@ -266,10 +266,10 @@
   },
   {
     "id": 38,
-    "name": "SEXYBCRT",
-    "code": "SEXYBCRT",
+    "name": "Jellyglow",
+    "code": "JELLYGLOW",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/s1/1746283732376/LuckyCat.jpg",
+    "logo": "/icons/platforms/jellyglow.png",
     "openType": true,
     "sort": 1,
     "gameTypes": [
@@ -309,10 +309,10 @@
   },
   {
     "id": 43,
-    "name": "POPOK",
-    "code": "POPOK",
+    "name": "Bubbleloop",
+    "code": "BUBBLELOOP",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/s1/1749827249483/Game_popk.svg",
+    "logo": "/icons/platforms/bubbleloop.png",
     "openType": true,
     "sort": 1,
     "gameTypes": [
@@ -328,10 +328,10 @@
   },
   {
     "id": 24,
-    "name": "Betby",
-    "code": "Betby",
+    "name": "Pulsearc",
+    "code": "PULSEARC",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721052035839/BETBYlogo_2.svg",
+    "logo": "/icons/platforms/pulsearc.png",
     "openType": false,
     "sort": 1,
     "gameTypes": [
@@ -347,10 +347,10 @@
   },
   {
     "id": 26,
-    "name": "SABA",
-    "code": "basha",
+    "name": "Tidepath",
+    "code": "TIDEPATH",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1721052045996/SABA.svg",
+    "logo": "/icons/platforms/tidepath.png",
     "openType": true,
     "sort": 1,
     "gameTypes": [
@@ -366,10 +366,10 @@
   },
   {
     "id": 33,
-    "name": "CP",
-    "code": "CP",
+    "name": "Ambermoon",
+    "code": "AMBERMOON",
     "status": "ON",
-    "logo": "https://upload-us.b83.xyz/1740721293913/cp.svg",
+    "logo": "/icons/platforms/ambermoon.png",
     "openType": true,
     "sort": 1,
     "gameTypes": [

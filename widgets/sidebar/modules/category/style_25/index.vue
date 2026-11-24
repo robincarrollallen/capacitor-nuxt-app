@@ -18,7 +18,7 @@ const { gameCategoryList, platformCategoryList, isGameCategory } = useCategoryLo
 <template>
 	<abbr>Category</abbr>
 	<section v-if="isGameCategory" v-bind="$attrs">
-		<div v-for="category in gameCategoryList" :key="category.name" class="game-category-item">
+		<div v-for="category in gameCategoryList" :key="category.gameType" class="game-category-item">
 			<i :style="category.iconStyle" />
 			<label>{{ category.name }}</label>
 		</div>

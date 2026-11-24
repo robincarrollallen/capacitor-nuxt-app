@@ -144,6 +144,12 @@
     "gameProvider": "游戏厂商"
   },
   "sort": {
+    "ACTION": "动作",
+    "JUMPING": "跳跃",
+    "SHOOTING": "射击",
+    "STRATEGY": "策略",
+    "ADVENTURE": "冒险",
+    "THREE_D": "3D",
     "ALL": "全部",
     "POPULAR": "热门",
     "CHESS": "棋牌",

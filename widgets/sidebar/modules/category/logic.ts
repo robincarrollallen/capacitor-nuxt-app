@@ -6,33 +6,20 @@ export const useCategoryLogic = (props: Recordable) => {
 	const isGameCategory = computed(() => tenantStore.tenantInfo?.homeNavType === 'GameType')
 
 	/** Game category list */
-	const gameCategoryList = computed(() => {
-		const popularItem = {
-			gameType: 'POPULAR' as const,
-			name: t('sort.POPULAR'),
-			iconStyle: props.getCategoryIconStyle('ONE_API_HOT')
-		}
-
-		const gameItems = gameStore.homeList.map(item => {
-			const { gameType } = item
-			return {
-				...item,
-				name: t(`sort.${gameType}`),
-				iconStyle: props.getCategoryIconStyle(gameType),
-			}
-		})
-
-		return [popularItem, ...gameItems]
-	})
+	const gameCategoryList = computed(() => gameStore.homeCategories.map(({ gameType, labelKey }) => ({
+		gameType,
+		name: t(`sort.${labelKey}`),
+		iconStyle: props.getCategoryIconStyle(labelKey),
+	})))
 
 	/** Platform category list */
 	const platformCategoryList = computed(() => {
 		const popularItem = {
 			id: 'POPULAR',
-			code: "ONE_API_HOT",
+			code: 'POPULAR',
 			gameType: 'POPULAR',
 			name: t('sort.POPULAR'),
-			iconStyle: props.getCategoryIconStyle('ONE_API_HOT') + `;background-size: auto 100%`
+			iconStyle: props.getCategoryIconStyle('POPULAR')
 		}
 
 		const platformItems = gameStore.homePlatformList.map(item => {

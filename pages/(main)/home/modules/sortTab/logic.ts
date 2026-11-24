@@ -1,3 +1,5 @@
+import { sprite } from "@/theme/sprite"
+
 export function useSortTabLogic(props: Recordable = {}) {
   const { t } = useI18n()
   const gameStore = useGameStore()
@@ -7,7 +9,9 @@ export function useSortTabLogic(props: Recordable = {}) {
   const active = ref(0)
 
   const isGameCategory = computed(() => tenantStore.tenantInfo?.homeNavType === "GameType")
-  const gameWarpComponent = defineAsyncComponent(props.components[0]?.component) // Game warp component
+  const gameWrapLoader = props.components?.[0]?.component
+  const gameWarpComponent = gameWrapLoader ? defineAsyncComponent(gameWrapLoader) : undefined
+  const getPlatformIconStyle = props.getPlatformIconStyle ?? sprite.platform_category_25
   const homeHotList = computed(() => gameStore.homeHotList) // Home hot game list
   const tabsOffsetTop = computed(() => { // Tabs offset top
     if (systemStore.screenWidth >= 540) {
@@ -16,47 +20,32 @@ export function useSortTabLogic(props: Recordable = {}) {
 
     return 6.25 * systemStore.fontSize
   })
-  const hotTab = computed(() => {
-    return {
-      id: "POPULAR",
-      code: "ONE_API_HOT",
-      name: t("sort.POPULAR"),
-      categoryIconStyle: props.getCategoryIconStyle("ONE_API_HOT"),
-      platformList: [{
-        id: "POPULAR",
-        code: "ONE_API_HOT",
-        gameList: gameStore.homeHotList,
-        platformIconStyle: props.getCategoryIconStyle("ONE_API_HOT"),
-      }],
-    }
-  })
   const homeList = computed(() => {
-    const list = gameStore.homeList.sort((a, b) => (b.gameTypeSort ?? 0) - (a.gameTypeSort ?? 0)).map((item) => {
-      const { gameType } = item
+    return gameStore.homeCategories.map((item) => {
+      const { gameType, labelKey } = item
       return {
         ...item,
         id: gameType,
-        code: gameType,
-        name: t(`sort.${gameType}`),
-        categoryIconStyle: props.getCategoryIconStyle(gameType),
+        code: labelKey,
+        name: t(`sort.${labelKey}`),
+        categoryIconStyle: props.getCategoryIconStyle(labelKey),
         platformList: item.platformList.map((platform) => {
           return {
             ...platform,
-            id: gameType,
-            code: gameType,
-            platformIconStyle: props.getPlatformIconStyle(platform.code),
-            gameList: gameStore.gameList.flatMap(game => game.gameList.filter(game => game.gameType === gameType && game.platformId === platform.id)),
+            platformIconStyle: getPlatformIconStyle(platform.code),
+            gameList: gameStore.gameList.flatMap(({ gameList }) =>
+              gameList.filter(game => game.gameType === gameType && game.platformCode === platform.code),
+            ),
           }
         }),
       }
     })
-    if (props.noHot) {
-      return list
-    }
-    return [hotTab.value, ...list]
   })
   const homePlatformList = computed(() => { // Home platform list
-    const platformList = [...gameStore.homePlatformList]
+    const platformList = gameStore.homePlatformList.map(platform => ({
+      ...platform,
+      platformIconStyle: getPlatformIconStyle(platform.code),
+    }))
 
     platformList.unshift({
       id: 0,
@@ -84,13 +73,12 @@ export function useSortTabLogic(props: Recordable = {}) {
   }
 
   /** get game list by platform */
-  const getGameListByPlatform = (platformId: number) => {
-    return getOrSetCache("game", `platform_${platformId}`, () => {
-      return gameStore.gameList
-        .filter(item => item.gameList[0]?.platformId === platformId)
-        .flatMap(item => item.gameList)
-    })
-  }
+  const getGameListByPlatform = (platformCode: string) =>
+    getOrSetCache("game", `platform_${platformCode}`, () =>
+      gameStore.gameList.flatMap(({ gameList }) =>
+        gameList.filter(game => game.platformCode === platformCode),
+      ),
+    )
 
   let navComplete: HTMLElement | null = null
   let isDown = false
