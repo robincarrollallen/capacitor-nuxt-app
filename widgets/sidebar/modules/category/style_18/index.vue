@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { sortIconPosition } from '../../../data'
 const gameStore = useGameStore()
-
-const gameCategoryList = computed(() => gameStore.homeList.map(item => item.gameType)) // Game category list
 </script>
 
 <template>
 	<section class="game-category-wrap">
 		<div class="game-category-icon" />
-		<div v-for="category in gameCategoryList" :key="category" class="game-category-item">
-			<span class="game-category-item-icon" :style="sortIconPosition[category]" />
-			<span class="game-category-item-title">{{ category }}</span>
+		<div v-for="{ gameType, labelKey } in gameStore.homeCategories" :key="gameType" class="game-category-item">
+			<span class="game-category-item-icon" :style="sortIconPosition[labelKey]" />
+			<span class="game-category-item-title">{{ $t(`sort.${labelKey}`) }}</span>
 		</div>
 	</section>
 </template>

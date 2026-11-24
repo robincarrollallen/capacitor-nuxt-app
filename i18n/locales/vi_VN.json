@@ -143,6 +143,12 @@
     "gameProvider": "Nhà cung cấp trò chơi"
   },
   "sort": {
+    "ACTION": "Hành động",
+    "JUMPING": "Nhảy",
+    "SHOOTING": "Bắn súng",
+    "STRATEGY": "Chiến thuật",
+    "ADVENTURE": "Phiêu lưu",
+    "THREE_D": "3D",
     "ALL": "Tất cả",
     "POPULAR": "Phổ biến",
     "CHESS": "Game Bài",

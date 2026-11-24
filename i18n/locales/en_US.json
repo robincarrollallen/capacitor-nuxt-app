@@ -144,6 +144,12 @@
     "gameProvider": "Game Provider"
   },
   "sort": {
+    "ACTION": "Action",
+    "JUMPING": "Jumping",
+    "SHOOTING": "Shooting",
+    "STRATEGY": "Strategy",
+    "ADVENTURE": "Adventure",
+    "THREE_D": "3D",
     "ALL": "All",
     "POPULAR": "Hot",
     "CHESS": "Cards",

@@ -19,7 +19,8 @@ const { hasPrev, hasNext, showAll, swiperRef, currentSlide, swiperHandler, gameC
 <template>
   <div class="segment-pane-item">
     <header class="segment-pane-header">
-      <Icon class="segment-pane-header-icon" :src="props.platform.logo" />
+      <i v-if="props.platform.platformIconStyle" class="segment-pane-header-icon" :style="props.platform.platformIconStyle" aria-hidden="true" />
+      <Icon v-else class="segment-pane-header-icon" :src="props.platform.logo" />
       <div class="segment-pane-header-title">
         {{ props.platform.name }}
       </div>

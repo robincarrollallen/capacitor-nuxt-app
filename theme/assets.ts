@@ -3,12 +3,12 @@ export const Assets = {
   jackpot_25: new URL("@/assets/images/home/bonus-25.png", import.meta.url).href,
 
   bg_game_category_25: {
-    ONE_API_HOT: new URL("@/assets/images/home/bg-game-category-ONE_API_HOT-25.png", import.meta.url).href,
-    CHESS: new URL("@/assets/images/home/bg-game-category-CHESS-25.png", import.meta.url).href,
-    ELECTRONIC: new URL("@/assets/images/home/bg-game-category-ELECTRONIC-25.png", import.meta.url).href,
-    FISHING: new URL("@/assets/images/home/bg-game-category-FISHING-25.png", import.meta.url).href,
-    LOTTERY: new URL("@/assets/images/home/bg-game-category-LOTTERY-25.png", import.meta.url).href,
-    SPORTS: new URL("@/assets/images/home/bg-game-category-SPORTS-25.png", import.meta.url).href,
-    VIDEO: new URL("@/assets/images/home/bg-game-category-VIDEO-25.png", import.meta.url).href,
+    POPULAR: new URL("@/assets/images/home/bg-game-category-POPULAR-25.png", import.meta.url).href,
+    ACTION: new URL("@/assets/images/home/bg-game-category-ACTION-25.png", import.meta.url).href,
+    JUMPING: new URL("@/assets/images/home/bg-game-category-JUMPING-25.png", import.meta.url).href,
+    SHOOTING: new URL("@/assets/images/home/bg-game-category-SHOOTING-25.png", import.meta.url).href,
+    STRATEGY: new URL("@/assets/images/home/bg-game-category-STRATEGY-25.png", import.meta.url).href,
+    ADVENTURE: new URL("@/assets/images/home/bg-game-category-ADVENTURE-25.png", import.meta.url).href,
+    THREE_D: new URL("@/assets/images/home/bg-game-category-THREE_D-25.png", import.meta.url).href,
   },
 }

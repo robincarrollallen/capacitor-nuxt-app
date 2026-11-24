@@ -10,13 +10,14 @@ const { active, homeHotList, homePlatformList, tabsOffsetTop, getGameListByPlatf
     <van-tab v-for="platform of homePlatformList" :key="platform.id" class="segment-pane">
       <template #title>
         <div class="segment-tab">
-          <Icon class="segment-tab-icon" :src="platform.logo" />
+          <i v-if="platform.platformIconStyle" class="segment-tab-icon" :style="platform.platformIconStyle" aria-hidden="true" />
+          <Icon v-else class="segment-tab-icon" :src="platform.logo" />
           <div>{{ platform.name }}</div>
         </div>
       </template>
       <div class="segment-pane-wrap">
         <GameWarp v-if="platform.id === 0" :platform="platform" :list="homeHotList" />
-        <GameWarp v-else :platform="platform" :list="getGameListByPlatform(platform.id)" />
+        <GameWarp v-else :platform="platform" :list="getGameListByPlatform(platform.code)" />
       </div>
     </van-tab>
   </van-tabs>
@@ -47,6 +48,7 @@ const { active, homeHotList, homePlatformList, tabsOffsetTop, getGameListByPlatf
 					text-align: center;
 
 					.segment-tab-icon {
+						display: inline-block;
 						width: 2.5rem;
 						height: 2.5rem;
 					}
